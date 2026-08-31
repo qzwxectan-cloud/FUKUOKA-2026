@@ -5,18 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#20364a" />
 <title>2026 福岡秋日旅行｜家人提案版</title>
-
-<meta name="apple-mobile-web-app-title" content="福岡秋日旅行" />
-<meta name="description" content="10/8–10/13 福岡秋日旅行提案：高千穗、由布院、柳川、門司港與福岡市區。" />
-<meta property="og:type" content="website" />
-<meta property="og:locale" content="zh_TW" />
-<meta property="og:title" content="2026 福岡秋日旅行｜家人提案版" />
-<meta property="og:site_name" content="福岡秋日旅行" />
-<meta property="og:description" content="10/8–10/13 福岡秋日旅行提案：高千穗、由布院、柳川、門司港與福岡市區。" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="2026 福岡秋日旅行｜家人提案版" />
-<meta name="twitter:description" content="10/8–10/13 福岡秋日旅行提案：高千穗、由布院、柳川、門司港與福岡市區。" />
-
 <style>
 :root{
   --ink:#89023E;
@@ -235,8 +223,8 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 .day-photo img[alt*="高千穗"]{
   filter:saturate(.76) contrast(.93) brightness(1.04) sepia(.045) hue-rotate(-4deg);
 }
-.day-photo img[alt*="金鱗湖"],
-.photo-tile img[alt*="金鱗湖"]{
+.day-photo img[alt*="由布院"],
+.photo-tile img[alt*="由布院"]{
   filter:saturate(.78) contrast(.93) brightness(1.045) sepia(.06) hue-rotate(-3deg);
 }
 .day-photo img[alt*="柳川"]{
@@ -295,90 +283,36 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 .booking-alert b{color:#89023E}
 
 
-/* V5 resilient image fallback */
-.day-photo,.photo-tile{position:relative}
-.day-photo .img-fallback,.photo-tile .img-fallback{
-  position:absolute;inset:0;display:none;align-items:center;justify-content:center;
-  padding:28px;text-align:center;background:
-  radial-gradient(circle at 80% 20%,rgba(199,217,183,.48),transparent 30%),
-  linear-gradient(145deg,#FFFDFC,#F3E1DD);
-  color:#89023E;font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;
-  font-size:22px;font-weight:800;letter-spacing:.06em;z-index:0
-}
-.day-photo.photo-error img,.photo-tile.photo-error img{display:none}
-.day-photo.photo-error .img-fallback,.photo-tile.photo-error .img-fallback{display:flex}
-/* V5.2 polished fixes */
-.wrap{padding-bottom:150px!important}
-.budget-clean{overflow:hidden}
-.budget-intro{padding:26px 22px 22px;background:linear-gradient(145deg,#fffaf8,#f7ebe7)}
-.budget-intro span{font-size:10px;letter-spacing:.18em;font-weight:800;color:#CC7178}
-.budget-intro h3{margin:7px 0 8px;font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;font-size:22px;line-height:1.35;color:#89023E}
-.budget-intro p{margin:0;color:#656b70;font-size:13px;line-height:1.75}
-.budget-row{align-items:flex-start!important;gap:18px}
-.budget-row>span{flex:0 0 74px;color:#6b5c60}
-.budget-row b{font-size:13px;line-height:1.55;text-align:right;max-width:70%}
-.budget-row small{font-size:10px;color:#9a7f83;font-weight:700}
-.closing-section{padding-bottom:34px}
-.decision{padding:34px 24px 38px!important;overflow:hidden}
-.decision h2{font-size:26px!important;line-height:1.35;margin:8px auto 0;max-width:520px}
-.decision p{font-size:13px!important;line-height:1.9!important;max-width:520px!important}
-.decision .question{display:flex;justify-content:center;align-items:center;gap:12px;margin:25px 0 0!important;font-size:24px!important;white-space:nowrap}
-.decision .question i{font-style:normal;color:#C7D9B7}
-.closing-cta{margin:10px auto 0;font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;font-size:24px;font-weight:800;color:#CC7178}
-@media(max-width:390px){
-  .decision{padding:30px 18px 34px!important}
-  .decision h2{font-size:23px!important}
-  .closing-cta{font-size:22px}
-  .budget-row b{max-width:68%;font-size:12px}
-}
-.day-photo img{filter:saturate(.82) brightness(1.03) contrast(.96)!important}
-
-
-/* V5.3 budget principle polish */
-.budget-note{
-  margin-top:14px;
-  line-height:1.7;
-}
-.budget-row b small{
-  display:inline-block;
-  margin-top:4px;
-  line-height:1.55;
-}
-@media(max-width:390px){
-  .budget-row{
-    gap:12px !important;
-  }
-  .budget-row>span{
-    flex-basis:72px !important;
-  }
-  .budget-row b{
-    max-width:72% !important;
-  }
-}
-
-
-/* Hero title: one line */
-.hero h1{
-  white-space:nowrap !important;
-  font-size:clamp(36px,10.5vw,54px) !important;
-  letter-spacing:.01em !important;
-  line-height:1.12 !important;
-}
-@media(max-width:360px){
-  .hero h1{font-size:34px !important;}
-}
-
-
-.photo-source-note{
-  max-width:760px;margin:22px auto 110px;padding:0 24px;
-  font-size:9px;line-height:1.6;text-align:center;color:#b19ea2;
-}
-.day-photo img{
-  width:100%;height:100%;object-fit:cover;
-  filter:saturate(.92) brightness(1.02) contrast(.97)!important;
-}
+/* CLEAN REBUILD */
+.hero h1{white-space:nowrap;font-size:clamp(34px,10vw,48px);letter-spacing:.01em;line-height:1.08}
+.day-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.88) brightness(1.035) contrast(.97)}
+.day-photo img[alt="高千穗峽"]{object-position:center 48%}
+.day-photo img[alt="金鱗湖"]{object-position:center 52%}
+.day-photo img[alt="柳川水鄉"]{object-position:center 52%}
+.day-photo img[alt="皿倉山夜景"]{object-position:center 48%;filter:saturate(.84) brightness(1.08) contrast(.94)}
+.budget-rules{overflow:hidden}
+.budget-head{padding:24px 20px 20px;background:linear-gradient(145deg,#fffdfb,#f5e8e4)}
+.budget-head h3{margin:7px 0 8px;font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;font-size:21px;line-height:1.4;color:#89023E}
+.budget-head p{margin:0;font-size:13px;line-height:1.8;color:#6b6064}
+.budget-row{align-items:flex-start;gap:16px}
+.budget-row>span{flex:0 0 74px}
+.budget-row b{max-width:70%;text-align:right;font-size:13px;line-height:1.55}
+.budget-row small{display:inline-block;margin-top:3px;font-size:10px;color:#9a7f83}
+.wrap{padding-bottom:130px}
+@media(max-width:360px){.hero h1{font-size:33px}.budget-row b{font-size:12px}}
 
 </style>
+
+<meta name="description" content="10/8–10/13 福岡秋日旅行家人提案：福岡、高千穗、由布院、柳川、門司港與皿倉山。">
+<meta name="apple-mobile-web-app-title" content="福岡秋日旅行">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:title" content="2026 福岡秋日旅行｜家人提案版">
+<meta property="og:site_name" content="福岡秋日旅行">
+<meta property="og:description" content="10/8–10/13 福岡秋日旅行家人提案：福岡、高千穗、由布院、柳川、門司港與皿倉山。">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="2026 福岡秋日旅行｜家人提案版">
+
 </head>
 <body>
 <div class="app">
@@ -474,7 +408,7 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 
   <article class="card day-card">
     <div class="day-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Takachiho%20Gorge%20%2852133238863%29.jpg?width=1280" alt="高千穗峽" loading="lazy" referrerpolicy="no-referrer">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Manai%20Falls%20at%20Takachiho%20Gorge.jpg?width=1280" alt="高千穗峽">
       <div class="day-photo-label">本趟自然系主角</div>
     </div>
     <div class="day-cover sage">
@@ -503,7 +437,7 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 
   <article class="card day-card">
     <div class="day-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lake%20Kinrinko%20from%20northwest%20lakeside.JPG?width=1280" alt="金鱗湖" loading="lazy" referrerpolicy="no-referrer">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lake%20Kinrinko%20from%20northwest%20lakeside.JPG?width=1280" alt="金鱗湖">
       <div class="day-photo-label">湖畔散步，把時間留給由布院</div>
     </div>
     <div class="day-cover terra">
@@ -530,7 +464,7 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 
   <article class="card day-card">
     <div class="day-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yanagawa%20cruise%20ac%20%281%29.jpg?width=1280" alt="柳川水鄉" loading="lazy" referrerpolicy="no-referrer">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yanagawa%20cruise%20ac%20%281%29.jpg?width=1280" alt="柳川水鄉">
       <div class="day-photo-label">坐著看水鄉慢慢經過</div>
     </div>
     <div class="day-cover gold">
@@ -557,7 +491,7 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 
   <article class="card day-card">
     <div class="day-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Night%20view%20from%20Sarakurayama.jpg?width=1280" alt="皿倉山夜景" loading="lazy" referrerpolicy="no-referrer">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Night%20Views%20from%20Mount%20Sarakura%2020170527-1.jpg?width=1280" alt="皿倉山夜景">
       <div class="day-photo-label">從夕陽待到城市亮燈</div>
     </div>
     <div class="day-cover">
@@ -621,57 +555,27 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 </section>
 
 <section class="section" id="budget">
-  <div class="section-title">
-    <div>
-      <div class="eyebrow">BUDGET</div>
-      <h2>預算原則</h2>
+  <div class="section-title"><div><div class="eyebrow">BUDGET</div><h2>預算原則</h2></div></div>
+  <div class="card budget-rules">
+    <div class="budget-head">
+      <div class="eyebrow">OUR BUDGET RULES</div>
+      <h3>先把旅行品質定好，再用實際價格精算</h3>
+      <p>這趟不先放一個偏低的總額。以下是目前規劃時會遵守的原則，等住宿、租車與票券真的訂下來後，再計算每人與四人的完整費用。</p>
     </div>
-  </div>
-
-  <div class="card budget-clean">
-    <div class="budget-intro">
-      <span>OUR BUDGET RULES</span>
-      <h3>先定旅行品質，再依實際價格精算</h3>
-      <p>這趟不先硬抓一個偏低的總額。以下是我們目前規劃時會遵守的預算原則，等住宿、租車與票券真的訂下來後，再計算每人與四人的完整費用。</p>
-    </div>
-
     <div class="budget-list">
-      <div class="budget-row">
-        <span>一般住宿</span>
-        <b>希望 ≤ NT$3,000／人／晚<br><small>福岡住宿以交通方便、舒適為優先</small></b>
-      </div>
-
-      <div class="budget-row">
-        <span>由布院</span>
-        <b>約 NT$4,000–6,000／人<br><small>希望一泊二食、真溫泉、房間舒服</small></b>
-      </div>
-
-      <div class="budget-row">
-        <span>餐食</span>
-        <b>一般餐食＋幾餐特色料理<br><small>想吃的安排進去，不為壓總額犧牲體驗</small></b>
-      </div>
-
-      <div class="budget-row">
-        <span>交通</span>
-        <b>高千穗租車＋JR＋西鐵＋新幹線＋市區交通<br><small>以順路、省時間、爸媽舒服為優先</small></b>
-      </div>
-
-      <div class="budget-row">
-        <span>景點體驗</span>
-        <b>划船、秘境鐵道、柳川遊船、皿倉山等<br><small>重要體驗照原規劃保留</small></b>
-      </div>
-
-      <div class="budget-row">
-        <span>另計</span>
-        <b>機票＋個人購物</b>
-      </div>
+      <div class="budget-row"><span>一般住宿</span><b>希望 ≤ NT$3,000／人／晚<br><small>福岡以交通方便、舒適為優先</small></b></div>
+      <div class="budget-row"><span>由布院</span><b>約 NT$4,000–6,000／人<br><small>希望一泊二食、真溫泉、房間舒服</small></b></div>
+      <div class="budget-row"><span>餐食</span><b>一般餐食＋幾餐特色料理<br><small>想吃的安排進去，不為壓總額犧牲體驗</small></b></div>
+      <div class="budget-row"><span>交通</span><b>租車＋JR＋西鐵＋新幹線＋市區交通<br><small>以順路、省時間、爸媽舒服為優先</small></b></div>
+      <div class="budget-row"><span>景點體驗</span><b>划船、秘境鐵道、柳川遊船、皿倉山等<br><small>重要體驗照原規劃保留</small></b></div>
+      <div class="budget-row"><span>另計</span><b>機票＋個人購物</b></div>
     </div>
   </div>
-
-  <div class="notice budget-note">
-    目前只呈現「花錢原則」，不放預估總額。等關鍵預約完成後，再用實際價格做正式預算。
-  </div>
+  <div class="notice">目前只呈現花錢原則，不放預估總額。等關鍵預約完成後，再用實際價格做正式預算。</div>
 </section>
+
+
+
 </div>
 
 <nav class="bottom-nav">
@@ -698,15 +602,8 @@ const io=new IntersectionObserver(entries=>{
 targets.forEach(t=>io.observe(t));
 </script>
 
-
-
-
-
-
-
-<div class="photo-source-note">
-  景點照片來源：Wikimedia Commons（高千穗峽、金鱗湖、柳川水鄉、皿倉山夜景）
+<div style="max-width:760px;margin:16px auto 100px;padding:0 22px;text-align:center;font-size:9px;line-height:1.6;color:#ad9a9e">
+景點照片：Wikimedia Commons｜高千穗 The Modern Polymath；金鱗湖 そらみみ；柳川 Asturio Cantabrio；皿倉山 Suicasmo。
 </div>
-
 </body>
 </html>
