@@ -223,8 +223,8 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 .day-photo img[alt*="高千穗"]{
   filter:saturate(.76) contrast(.93) brightness(1.04) sepia(.045) hue-rotate(-4deg);
 }
-.day-photo img[alt*="由布院"],
-.photo-tile img[alt*="由布院"]{
+.day-photo img[alt*="金鱗湖"],
+.photo-tile img[alt*="金鱗湖"]{
   filter:saturate(.78) contrast(.93) brightness(1.045) sepia(.06) hue-rotate(-3deg);
 }
 .day-photo img[alt*="柳川"]{
@@ -282,9 +282,25 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 }
 .booking-alert b{color:#89023E}
 
+
+/* V5 resilient image fallback */
+.day-photo,.photo-tile{position:relative}
+.day-photo .img-fallback,.photo-tile .img-fallback{
+  position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+  padding:28px;text-align:center;background:
+  radial-gradient(circle at 80% 20%,rgba(199,217,183,.48),transparent 30%),
+  linear-gradient(145deg,#FFFDFC,#F3E1DD);
+  color:#89023E;font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  font-size:22px;font-weight:800;letter-spacing:.06em;z-index:0
+}
+.day-photo.photo-error img,.photo-tile.photo-error img{display:none}
+.day-photo.photo-error .img-fallback,.photo-tile.photo-error .img-fallback{display:flex}
+.photo-credit{
+  max-width:760px;margin:18px auto 92px;padding:0 22px;
+  font-size:9px;line-height:1.6;color:#A08E92;text-align:center
+}
+
 </style>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
 </head>
 <body>
 <div class="app">
@@ -380,8 +396,8 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 
   <article class="card day-card">
     <div class="day-photo">
-      <img src="https://media.gettyimages.com/id/2216019952/photo/takachiho-gorge-in-autumn-a-mythical-village.jpg?s=612x612&w=0&k=20&c=G1JdUjsP8lF-D9znn_4K8HEt3A2gDUtA7Ssk5cH3ZCQ=" alt="高千穗峽">
-      <div class="day-photo-label">本趟自然系主角</div>
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Manai%20Falls%20at%20Takachiho%20Gorge.jpg?width=1280" alt="高千穗峽" loading="lazy">
+      <div class="day-photo-label">本趟自然系主角<div class="img-fallback">高千穗峽</div></div>
     </div>
     <div class="day-cover sage">
       <div class="topline"><div class="num">DAY 02 · 10/9 FRI</div><span class="level hard">較充實</span></div>
@@ -409,8 +425,8 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 
   <article class="card day-card">
     <div class="day-photo">
-      <img src="https://bigs.jp/travelblog/article/kyushu/img/20230808_sushi-yufuin_01_03.jpg" alt="由布院之森">
-      <div class="day-photo-label">觀光列車本身就是風景</div>
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kinrinko.JPG" alt="金鱗湖" loading="lazy">
+      <div class="day-photo-label">湖畔散步，把時間留給由布院<div class="img-fallback">金鱗湖</div></div>
     </div>
     <div class="day-cover terra">
       <div class="topline"><div class="num">DAY 03 · 10/10 SAT</div><span class="level easy">最放鬆</span></div>
@@ -436,8 +452,8 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 
   <article class="card day-card">
     <div class="day-photo">
-      <img src="https://www.jeepe.jp/_next/image?url=https%3A%2F%2Fcdn.jeepe.jp%2Farticle%2Fyanagawa-water-town-tour-1310%2Fcover.jpg&w=1080&q=75" alt="柳川水鄉">
-      <div class="day-photo-label">坐著看水鄉慢慢經過</div>
+      <img src="https://c6.staticflickr.com/6/5621/30174329013_15f520163b_c.jpg" alt="柳川水鄉" loading="lazy">
+      <div class="day-photo-label">坐著看水鄉慢慢經過<div class="img-fallback">柳川水鄉</div></div>
     </div>
     <div class="day-cover gold">
       <div class="topline"><div class="num">DAY 04 · 10/11 SUN</div><span class="level mid">適中</span></div>
@@ -463,8 +479,8 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 
   <article class="card day-card">
     <div class="day-photo">
-      <img src="https://limo.ismcdn.jp/mwimgs/8/8/870wm/img_8883efc793d715ebcf1a4584f836ca69399032.jpg" alt="皿倉山夜景">
-      <div class="day-photo-label">從夕陽待到城市亮燈</div>
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Night%20Views%20from%20Mount%20Sarakura%2020170527-1.jpg?width=1280" alt="皿倉山夜景" loading="lazy">
+      <div class="day-photo-label">從夕陽待到城市亮燈<div class="img-fallback">皿倉山夜景</div></div>
     </div>
     <div class="day-cover">
       <div class="topline"><div class="num">DAY 05 · 10/12 MON</div><span class="level mid">適中</span></div>
@@ -537,7 +553,7 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
       <div class="budget-row"><span>另計</span><b>機票＋個人購物</b></div>
     </div>
   </div>
-  <div class="notice">※ 目前是提案估算。四人確定同行後，再依實際住宿、租車與票券做第二次精算。</div>
+  <div class="notice">※ 現階段不先放總額，避免尚未確認的住宿與租車價格造成誤解；重要預約完成後再更新每人與四人總預算。</div>
 </section>
 
 <section class="section">
@@ -578,5 +594,21 @@ const io=new IntersectionObserver(entries=>{
 },{threshold:[.2,.45,.7],rootMargin:'-15% 0px -60% 0px'});
 targets.forEach(t=>io.observe(t));
 </script>
+
+<script>
+document.querySelectorAll('.day-photo img,.photo-tile img').forEach(function(img){
+  img.addEventListener('error', function(){
+    var box = img.closest('.day-photo,.photo-tile');
+    if(box) box.classList.add('photo-error');
+  });
+});
+</script>
+
+
+<div class="photo-credit">
+照片來源：Wikimedia Commons／公開授權素材及旅遊影像來源。高千穗：The Modern Polymath（CC BY-SA 4.0）；
+皿倉山：Suicasmo（CC BY-SA 4.0）。本頁為私人旅行規劃用途。
+</div>
+
 </body>
 </html>
