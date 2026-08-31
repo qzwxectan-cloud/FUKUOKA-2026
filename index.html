@@ -300,6 +300,33 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
   font-size:9px;line-height:1.6;color:#A08E92;text-align:center
 }
 
+
+/* V5.2 polished fixes */
+.wrap{padding-bottom:150px!important}
+.budget-clean{overflow:hidden}
+.budget-intro{padding:26px 22px 22px;background:linear-gradient(145deg,#fffaf8,#f7ebe7)}
+.budget-intro span{font-size:10px;letter-spacing:.18em;font-weight:800;color:#CC7178}
+.budget-intro h3{margin:7px 0 8px;font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;font-size:22px;line-height:1.35;color:#89023E}
+.budget-intro p{margin:0;color:#656b70;font-size:13px;line-height:1.75}
+.budget-row{align-items:flex-start!important;gap:18px}
+.budget-row>span{flex:0 0 74px;color:#6b5c60}
+.budget-row b{font-size:13px;line-height:1.55;text-align:right;max-width:70%}
+.budget-row small{font-size:10px;color:#9a7f83;font-weight:700}
+.closing-section{padding-bottom:34px}
+.decision{padding:34px 24px 38px!important;overflow:hidden}
+.decision h2{font-size:26px!important;line-height:1.35;margin:8px auto 0;max-width:520px}
+.decision p{font-size:13px!important;line-height:1.9!important;max-width:520px!important}
+.decision .question{display:flex;justify-content:center;align-items:center;gap:12px;margin:25px 0 0!important;font-size:24px!important;white-space:nowrap}
+.decision .question i{font-style:normal;color:#C7D9B7}
+.closing-cta{margin:10px auto 0;font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;font-size:24px;font-weight:800;color:#CC7178}
+@media(max-width:390px){
+  .decision{padding:30px 18px 34px!important}
+  .decision h2{font-size:23px!important}
+  .closing-cta{font-size:22px}
+  .budget-row b{max-width:68%;font-size:12px}
+}
+.day-photo img{filter:saturate(.82) brightness(1.03) contrast(.96)!important}
+
 </style>
 </head>
 <body>
@@ -396,8 +423,8 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 
   <article class="card day-card">
     <div class="day-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Manai%20Falls%20at%20Takachiho%20Gorge.jpg?width=1280" alt="高千穗峽" loading="lazy">
-      <div class="day-photo-label">本趟自然系主角<div class="img-fallback">高千穗峽</div></div>
+      <img src="data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTIwMCA3MjAiPgo8ZGVmcz4KIDxsaW5lYXJHcmFkaWVudCBpZD0ic2t5IiB4Mj0iMCIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNkOWU3ZGYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmNGVhZGYiLz48L2xpbmVhckdyYWRpZW50PgogPGxpbmVhckdyYWRpZW50IGlkPSJ3YXRlciIgeDI9IjAiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjOGViOGE2Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNTI3ZDczIi8+PC9saW5lYXJHcmFkaWVudD4KIDxsaW5lYXJHcmFkaWVudCBpZD0icm9jayIgeDI9IjEiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjNTI2ODYxIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMmU0ODQzIi8+PC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI3MjAiIGZpbGw9InVybCgjc2t5KSIvPgo8cGF0aCBkPSJNMCAxMTAgQzE2MCA0MCAyNzAgMTEwIDM5MCAxOTAgTDQxMCA3MjAgSDBaIiBmaWxsPSIjNjA3ZDY4Ii8+CjxwYXRoIGQ9Ik0xMjAwIDkwIEMxMDAwIDI1IDkwMCAxMTAgNzkwIDIxMCBMNzcwIDcyMCBIMTIwMFoiIGZpbGw9IiM1MDZlNjAiLz4KPHBhdGggZD0iTTM2NSAwIEM0MTAgMTMwIDM4NSAyNDUgMzk1IDcyMCBMNTIwIDcyMCBDNTE1IDQ3MCA1NjAgMzIwIDU0MCAxODAgQzUyNSA4MCA0ODAgMzAgNDUwIDBaIiBmaWxsPSJ1cmwoI3JvY2spIi8+CjxwYXRoIGQ9Ik04MzUgMCBDODA1IDE0MCA4MjUgMjgwIDgxMCA3MjAgTDY3MCA3MjAgQzY3NSA1MDAgNjQ1IDM0MCA2NjggMTgwIEM2ODIgOTAgNzIwIDM1IDc1MCAwWiIgZmlsbD0idXJsKCNyb2NrKSIvPgo8cGF0aCBkPSJNNTAwIDAgQzUwMCAxNjUgNTA1IDI4NSA1MTAgMzk1IEM1MjAgNDcwIDU0NSA1MjAgNjAwIDU0MCBDNjU1IDUyMCA2ODAgNDcwIDY5MCAzOTUgQzY5NSAyODAgNzAwIDE2NSA3MDAgMFoiIGZpbGw9IiNkOWYwZWEiIG9wYWNpdHk9Ii44MiIvPgo8cGF0aCBkPSJNNTIwIDM1MCBDNTQ1IDQzMCA1NzUgNDcwIDYwMCA0ODAgQzYzMCA0NjYgNjU3IDQzMCA2ODAgMzUwIEw2ODYgNzIwIEg1MTRaIiBmaWxsPSJ1cmwoI3dhdGVyKSIvPgo8cGF0aCBkPSJNNDMwIDI1IEM0NzAgMTIwIDQ4MCAyNTAgNDY1IDM2NSBDNDU1IDQ1NSA0MzAgNTA1IDM5OCA1NDggTDQ0NSA1NDggQzQ4NSA0ODUgNTA1IDQyMCA1MTAgMzUwIEM1MjAgMjMwIDUxMCAxMTAgNTAwIDIwWiIgZmlsbD0iI2Y2ZmJmOCIgb3BhY2l0eT0iLjg2Ii8+CjxnIGZpbGw9IiM3Njk2N2IiIG9wYWNpdHk9Ii45NSI+CiA8Y2lyY2xlIGN4PSIxNzUiIGN5PSIxMDAiIHI9Ijc1Ii8+PGNpcmNsZSBjeD0iMjQ1IiBjeT0iMTQwIiByPSI5MCIvPjxjaXJjbGUgY3g9IjgwIiBjeT0iMTgwIiByPSIxMDUiLz4KIDxjaXJjbGUgY3g9IjEwMjAiIGN5PSIxMjAiIHI9Ijk1Ii8+PGNpcmNsZSBjeD0iMTExMCIgY3k9IjE5MCIgcj0iMTAwIi8+PGNpcmNsZSBjeD0iOTMwIiBjeT0iMTgwIiByPSI4NSIvPgo8L2c+CjxnIGZpbGw9IiNjN2Q5YjciPjxjaXJjbGUgY3g9IjMxNSIgY3k9IjE3MCIgcj0iMzIiLz48Y2lyY2xlIGN4PSI4OTAiIGN5PSIxNTAiIHI9IjQwIi8+PGNpcmNsZSBjeD0iMjgwIiBjeT0iMjU1IiByPSIyNiIvPjxjaXJjbGUgY3g9IjkzMCIgY3k9IjI3MCIgcj0iMzQiLz48L2c+CjxlbGxpcHNlIGN4PSI2MDAiIGN5PSI2MDUiIHJ4PSI4OCIgcnk9IjIyIiBmaWxsPSIjZjZlZGU4IiBvcGFjaXR5PSIuODgiLz4KPHBhdGggZD0iTTU1MiA1OTYgUTYwMCA1NjYgNjQ4IDU5NiBMNjMzIDYyMCBINTY3WiIgZmlsbD0iIzllNjI1ZiIvPgo8cGF0aCBkPSJNNjAwIDU3MiB2MzUiIHN0cm9rZT0iIzYwNDg0NSIgc3Ryb2tlLXdpZHRoPSI4Ii8+Cjwvc3ZnPgo=" alt="高千穗峽" loading="eager">
+      <div class="day-photo-label">本趟自然系主角</div>
     </div>
     <div class="day-cover sage">
       <div class="topline"><div class="num">DAY 02 · 10/9 FRI</div><span class="level hard">較充實</span></div>
@@ -425,8 +452,8 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 
   <article class="card day-card">
     <div class="day-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kinrinko.JPG" alt="金鱗湖" loading="lazy">
-      <div class="day-photo-label">湖畔散步，把時間留給由布院<div class="img-fallback">金鱗湖</div></div>
+      <img src="data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTIwMCA3MjAiPgo8ZGVmcz4KIDxsaW5lYXJHcmFkaWVudCBpZD0ic2t5IiB4Mj0iMCIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNkZmU2ZTgiLz48c3RvcCBvZmZzZXQ9Ii41NSIgc3RvcC1jb2xvcj0iI2Y0ZTZkYyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2Y4ZjNlZSIvPjwvbGluZWFyR3JhZGllbnQ+CiA8bGluZWFyR3JhZGllbnQgaWQ9Imxha2UiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iI2I3Y2JjMyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzdkOWE5MCIvPjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNzIwIiBmaWxsPSJ1cmwoI3NreSkiLz4KPHBhdGggZD0iTTAgMzIwIFExNjAgMjEwIDMzMCAyOTAgVDYyMCAyNjAgVDkyMCAyODUgVDEyMDAgMjMwIFYzOTAgSDBaIiBmaWxsPSIjN2Q5MjdjIi8+CjxwYXRoIGQ9Ik0wIDM3MCBRMjAwIDMxMCAzNjAgMzQwIFQ3MDAgMzMwIFQxMjAwIDMyMCBWNDgwIEgwWiIgZmlsbD0iIzllYWE4ZCIvPgo8cmVjdCB5PSI0MTAiIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjMxMCIgZmlsbD0idXJsKCNsYWtlKSIvPgo8cGF0aCBkPSJNMCA0MzUgUTIxMCA0NTUgNDMwIDQzMCBUODUwIDQzOCBUMTIwMCA0MjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2VkZjJlZCIgc3Ryb2tlLXdpZHRoPSIxMCIgb3BhY2l0eT0iLjU1Ii8+CjxwYXRoIGQ9Ik0wIDUwNSBRMTgwIDUzMCAzNTUgNTEwIFQ3MDUgNTIwIFQxMjAwIDUwMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZDhlMmRkIiBzdHJva2Utd2lkdGg9IjgiIG9wYWNpdHk9Ii40NSIvPgo8Zz4KIDxyZWN0IHg9IjIxMCIgeT0iMzE1IiB3aWR0aD0iMTgwIiBoZWlnaHQ9IjEwNSIgcng9IjMiIGZpbGw9IiNlZmU2ZGIiLz4KIDxwYXRoIGQ9Ik0xOTAgMzMwIEwzMDAgMjU1IEw0MTAgMzMwWiIgZmlsbD0iIzdlNWQ1OSIvPgogPHJlY3QgeD0iMjU1IiB5PSIzNTAiIHdpZHRoPSI0OCIgaGVpZ2h0PSI3MCIgZmlsbD0iI2JmOWI3YiIvPjxyZWN0IHg9IjMyMCIgeT0iMzUwIiB3aWR0aD0iNDUiIGhlaWdodD0iMzgiIGZpbGw9IiM4YWE0YTIiLz4KIDxyZWN0IHg9IjczNSIgeT0iMzI1IiB3aWR0aD0iMjEwIiBoZWlnaHQ9Ijk1IiBmaWxsPSIjZjJlOWRlIi8+CiA8cGF0aCBkPSJNNzEwIDM0MCBMODQwIDI3MCBMOTcwIDM0MFoiIGZpbGw9IiM3NTU2NTMiLz4KIDxyZWN0IHg9Ijc4MCIgeT0iMzU1IiB3aWR0aD0iNTYiIGhlaWdodD0iNjUiIGZpbGw9IiNjOWE4OGIiLz48cmVjdCB4PSI4NTUiIHk9IjM1NSIgd2lkdGg9IjUyIiBoZWlnaHQ9IjQyIiBmaWxsPSIjOTVhYWE4Ii8+CjwvZz4KPGcgZmlsbD0iI2M3ZDliNyI+PGNpcmNsZSBjeD0iMTMwIiBjeT0iMzUwIiByPSI3MCIvPjxjaXJjbGUgY3g9IjEwMjAiIGN5PSIzNDUiIHI9Ijc1Ii8+PGNpcmNsZSBjeD0iMTA5MCIgY3k9IjM2NSIgcj0iNTUiLz48L2c+CjxnIGZpbGw9IiNmOGZiZmEiIG9wYWNpdHk9Ii42MiI+CiA8ZWxsaXBzZSBjeD0iNTgwIiBjeT0iNDMwIiByeD0iMjcwIiByeT0iMzAiLz48ZWxsaXBzZSBjeD0iNjIwIiBjeT0iNDcwIiByeD0iMzMwIiByeT0iMjYiLz4KPC9nPgo8L3N2Zz4K" alt="金鱗湖" loading="eager">
+      <div class="day-photo-label">湖畔散步，把時間留給由布院</div>
     </div>
     <div class="day-cover terra">
       <div class="topline"><div class="num">DAY 03 · 10/10 SAT</div><span class="level easy">最放鬆</span></div>
@@ -452,8 +479,8 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 
   <article class="card day-card">
     <div class="day-photo">
-      <img src="https://c6.staticflickr.com/6/5621/30174329013_15f520163b_c.jpg" alt="柳川水鄉" loading="lazy">
-      <div class="day-photo-label">坐著看水鄉慢慢經過<div class="img-fallback">柳川水鄉</div></div>
+      <img src="data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTIwMCA3MjAiPgo8ZGVmcz4KIDxsaW5lYXJHcmFkaWVudCBpZD0ic2t5IiB4Mj0iMCIgeTI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNmNWU3ZGYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNlOGVmZTYiLz48L2xpbmVhckdyYWRpZW50PgogPGxpbmVhckdyYWRpZW50IGlkPSJyaXZlciIgeDI9IjAiIHkyPSIxIj48c3RvcCBzdG9wLWNvbG9yPSIjOWJiN2FlIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjNjU3Zjc4Ii8+PC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI3MjAiIGZpbGw9InVybCgjc2t5KSIvPgo8cmVjdCB5PSIzMzAiIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjM5MCIgZmlsbD0idXJsKCNyaXZlcikiLz4KPHBhdGggZD0iTTAgMjU1IFExNDAgMTg1IDMwMCAyNDUgVDYwMCAyMjUgVDkyMCAyNTAgVDEyMDAgMjEwIFYzNjAgSDBaIiBmaWxsPSIjNzk5MDZmIi8+CjxnIGZpbGw9IiNjN2Q5YjciPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjI0NSIgcj0iODUiLz48Y2lyY2xlIGN4PSIyMzAiIGN5PSIyNTAiIHI9IjcwIi8+PGNpcmNsZSBjeD0iMTAwMCIgY3k9IjI1MCIgcj0iOTUiLz48Y2lyY2xlIGN4PSIxMTEwIiBjeT0iMjYwIiByPSI3MCIvPjwvZz4KPGc+CiA8cmVjdCB4PSI4MCIgeT0iMjQ1IiB3aWR0aD0iMjIwIiBoZWlnaHQ9Ijk1IiBmaWxsPSIjZjFlOGRmIi8+PHBhdGggZD0iTTYwIDI2MCBMMTkwIDE5NSBMMzIwIDI2MFoiIGZpbGw9IiM4ODVlNWIiLz4KIDxyZWN0IHg9Ijg3MCIgeT0iMjM4IiB3aWR0aD0iMjQwIiBoZWlnaHQ9IjEwMiIgZmlsbD0iI2VmZTZkZCIvPjxwYXRoIGQ9Ik04NDUgMjU1IEw5OTAgMTg4IEwxMTM1IDI1NVoiIGZpbGw9IiM3NDU2NTMiLz4KPC9nPgo8cGF0aCBkPSJNMCA0MjAgUTIyMCA0NTAgNDQwIDQyMCBUODUwIDQzMCBUMTIwMCA0MTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RjZTdlMiIgc3Ryb2tlLXdpZHRoPSI4IiBvcGFjaXR5PSIuNSIvPgo8cGF0aCBkPSJNMCA1MTUgUTIzMCA1NDAgNDYwIDUxNSBUOTAwIDUyMCBUMTIwMCA1MDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2NiZDhkMyIgc3Ryb2tlLXdpZHRoPSI3IiBvcGFjaXR5PSIuMzgiLz4KPHBhdGggZD0iTTQzNSA1MDUgUTYwMCA0NTAgNzY1IDUwNSBMNzA1IDU3MCBRNjAwIDYxMCA0OTUgNTcwWiIgZmlsbD0iIzhiNWE1MCIvPgo8cGF0aCBkPSJNNTAwIDUwMCBRNjAwIDQ2OCA3MDAgNTAwIEw2NjggNTMyIFE2MDAgNTUyIDUzMiA1MzJaIiBmaWxsPSIjZjRlNGQ5Ii8+CjxjaXJjbGUgY3g9IjU2MCIgY3k9IjUwMCIgcj0iMTkiIGZpbGw9IiM1ZDU2NTIiLz48Y2lyY2xlIGN4PSI2NDAiIGN5PSI0OTUiIHI9IjE5IiBmaWxsPSIjNWQ1NjUyIi8+CjxwYXRoIGQ9Ik02MzUgNDY2IEw3MTAgMzcwIiBzdHJva2U9IiM1YTUxNGMiIHN0cm9rZS13aWR0aD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8cGF0aCBkPSJNNzEyIDM2NiBsMzIgLTM1IiBzdHJva2U9IiM1YTUxNGMiIHN0cm9rZS13aWR0aD0iMTIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8ZyBmaWxsPSIjZDhhOGE0IiBvcGFjaXR5PSIuOSI+PGNpcmNsZSBjeD0iMzIwIiBjeT0iMjIwIiByPSIyNCIvPjxjaXJjbGUgY3g9IjM0NyIgY3k9IjIxMCIgcj0iMTgiLz48Y2lyY2xlIGN4PSI4MzAiIGN5PSIyMTIiIHI9IjIyIi8+PC9nPgo8L3N2Zz4K" alt="柳川水鄉" loading="eager">
+      <div class="day-photo-label">坐著看水鄉慢慢經過</div>
     </div>
     <div class="day-cover gold">
       <div class="topline"><div class="num">DAY 04 · 10/11 SUN</div><span class="level mid">適中</span></div>
@@ -479,8 +506,8 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 
   <article class="card day-card">
     <div class="day-photo">
-      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Night%20Views%20from%20Mount%20Sarakura%2020170527-1.jpg?width=1280" alt="皿倉山夜景" loading="lazy">
-      <div class="day-photo-label">從夕陽待到城市亮燈<div class="img-fallback">皿倉山夜景</div></div>
+      <img src="data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTIwMCA3MjAiPgo8ZGVmcz4KIDxsaW5lYXJHcmFkaWVudCBpZD0ibmlnaHQiIHgyPSIwIiB5Mj0iMSI+PHN0b3Agc3RvcC1jb2xvcj0iIzI1Mjc0MyIvPjxzdG9wIG9mZnNldD0iLjU1IiBzdG9wLWNvbG9yPSIjNWI1MTYyIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjYjg3OTc4Ii8+PC9saW5lYXJHcmFkaWVudD4KIDxyYWRpYWxHcmFkaWVudCBpZD0iZ2xvdyI+PHN0b3Agc3RvcC1jb2xvcj0iI2ZmZTliMyIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2ZmZTliMyIgc3RvcC1vcGFjaXR5PSIwIi8+PC9yYWRpYWxHcmFkaWVudD4KPC9kZWZzPgo8cmVjdCB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI3MjAiIGZpbGw9InVybCgjbmlnaHQpIi8+CjxjaXJjbGUgY3g9Ijk0MCIgY3k9IjEyNSIgcj0iMTIwIiBmaWxsPSJ1cmwoI2dsb3cpIiBvcGFjaXR5PSIuMzUiLz4KPHBhdGggZD0iTTAgNDcwIFExNzAgMzU1IDM0MCA0MTUgVDY1MCAzOTAgVDkzMCA0MzAgVDEyMDAgMzY1IFY3MjAgSDBaIiBmaWxsPSIjMjkzYTNhIi8+CjxwYXRoIGQ9Ik0wIDUyMCBRMTgwIDQ1NSAzNjAgNTAwIFQ3MjAgNDcwIFQxMjAwIDQ4NSBWNzIwIEgwWiIgZmlsbD0iIzFkMjkyYyIvPgo8ZyBmaWxsPSIjZjRkOThmIiBvcGFjaXR5PSIuODUiPgogPGNpcmNsZSBjeD0iMTUwIiBjeT0iNTM1IiByPSI0Ii8+PGNpcmNsZSBjeD0iMTg1IiBjeT0iNTU1IiByPSIzIi8+PGNpcmNsZSBjeD0iMjI1IiBjeT0iNTIwIiByPSI0Ii8+PGNpcmNsZSBjeD0iMjc4IiBjeT0iNTcwIiByPSIzIi8+CiA8Y2lyY2xlIGN4PSIzNDAiIGN5PSI1MzUiIHI9IjQiLz48Y2lyY2xlIGN4PSIzOTAiIGN5PSI1ODUiIHI9IjMiLz48Y2lyY2xlIGN4PSI0NTUiIGN5PSI1MzAiIHI9IjQiLz48Y2lyY2xlIGN4PSI1MTUiIGN5PSI1NjAiIHI9IjMiLz4KIDxjaXJjbGUgY3g9IjU4NSIgY3k9IjUxNSIgcj0iNCIvPjxjaXJjbGUgY3g9IjY1MCIgY3k9IjU1MCIgcj0iMyIvPjxjaXJjbGUgY3g9IjczNSIgY3k9IjUyNSIgcj0iNCIvPjxjaXJjbGUgY3g9IjgyMCIgY3k9IjU3MCIgcj0iMyIvPgogPGNpcmNsZSBjeD0iOTA1IiBjeT0iNTIwIiByPSI0Ii8+PGNpcmNsZSBjeD0iOTgwIiBjeT0iNTUwIiByPSIzIi8+PGNpcmNsZSBjeD0iMTA3MCIgY3k9IjUyNSIgcj0iNCIvPgo8L2c+CjxnIHN0cm9rZT0iIzllYThhOCIgc3Ryb2tlLXdpZHRoPSI1IiBmaWxsPSJub25lIj4KIDxwYXRoIGQ9Ik01NjAgNDUwIFE2MDAgMzkwIDY0MCA0NTAiLz48cGF0aCBkPSJNNTQ1IDQ1MCBINjU1Ii8+PHBhdGggZD0iTTYwMCAzOTAgVjQ3MCIvPgo8L2c+CjxjaXJjbGUgY3g9IjYwMCIgY3k9IjM5MCIgcj0iNyIgZmlsbD0iI2ZmZDk4YiIvPgo8cGF0aCBkPSJNNTc1IDQ1MCBINjI1IEw2NDAgNTAwIEg1NjBaIiBmaWxsPSIjZWZlMWQ4IiBvcGFjaXR5PSIuOCIvPgo8cGF0aCBkPSJNMCA2MjAgUTMwMCA1NzAgNjAwIDYxMCBUMTIwMCA2MDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzU2N2I3YSIgc3Ryb2tlLXdpZHRoPSI0IiBvcGFjaXR5PSIuNDUiLz4KPC9zdmc+Cg==" alt="皿倉山夜景" loading="eager">
+      <div class="day-photo-label">從夕陽待到城市亮燈</div>
     </div>
     <div class="day-cover">
       <div class="topline"><div class="num">DAY 05 · 10/12 MON</div><span class="level mid">適中</span></div>
@@ -544,28 +571,30 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 
 <section class="section" id="budget">
   <div class="section-title"><div><div class="eyebrow">BUDGET</div><h2>費用概念</h2></div></div>
-  <div class="card">
-    <div class="budget-big"><span>日本當地預估總支出</span><b>NT$25,000–35,000</b><small>每人｜不含機票、不含個人購物</small></div>
+  <div class="card budget-clean">
+    <div class="budget-intro">
+      <span>PRELIMINARY BUDGET</span>
+      <h3>先看花費結構，不先硬抓總額</h3>
+      <p>機票已確定；住宿、租車與部分票券尚未完成預約。等關鍵價格確認後，再更新「每人總額」與「四人總額」。</p>
+    </div>
     <div class="budget-list">
-      <div class="budget-row"><span>一般住宿</span><b>希望 ≤ NT$3,000／人／晚</b></div>
-      <div class="budget-row"><span>由布院溫泉旅館</span><b>約 NT$4,000–6,000／人</b></div>
-      <div class="budget-row"><span>餐食＋交通＋景點</span><b>約 NT$18,000–25,000／人</b></div>
+      <div class="budget-row"><span>住宿</span><b>福岡 4 晚＋由布院溫泉旅館 1 晚<br><small>⏳ 待住宿確認</small></b></div>
+      <div class="budget-row"><span>餐食</span><b>一般餐食＋特色料理<br><small>🎯 豐儉有彈性</small></b></div>
+      <div class="budget-row"><span>交通</span><b>租車＋JR＋西鐵＋新幹線＋市區交通<br><small>⏳ 待租車與車票確認</small></b></div>
+      <div class="budget-row"><span>景點／體驗</span><b>划船、秘境鐵道、柳川遊船、皿倉山等<br><small>🎯 依實際預約更新</small></b></div>
       <div class="budget-row"><span>另計</span><b>機票＋個人購物</b></div>
     </div>
   </div>
-  <div class="notice">※ 現階段不先放總額，避免尚未確認的住宿與租車價格造成誤解；重要預約完成後再更新每人與四人總預算。</div>
+  <div class="notice">重要預約完成後，這裡會改成可核對的正式預算，不用猜。</div>
 </section>
 
-<section class="section">
+<section class="section closing-section">
   <div class="card decision">
     <div class="eyebrow">ONE TRIP, SIX MEMORIES</div>
-    <h2>想邀請大家一起看的九州</h2>
-    <p>
-      有福岡的美食、有高千穗的山谷、有由布院的一晚溫泉，
-      也有柳川的水鄉、唐戶市場的新鮮海鮮，以及皿倉山從夕陽一路亮起的夜景。
-      六天不追求把九州全部走完，而是希望每天都有一件值得記得的事。
-    </p>
-    <div class="question">10/8–10/13，一起去九州嗎？ 🍁</div>
+    <h2>一起去九州，慢慢玩六天。</h2>
+    <p>有福岡的美食、高千穗的峽谷、由布院的一晚溫泉、柳川的水鄉，還有皿倉山從夕陽亮到夜景。不是把九州塞滿，而是每天留下一件值得記得的事。</p>
+    <div class="question"><span>10/8</span><i>→</i><span>10/13</span></div>
+    <div class="closing-cta">一起去九州嗎？ 🍁</div>
   </div>
 </section>
 
@@ -595,20 +624,10 @@ const io=new IntersectionObserver(entries=>{
 targets.forEach(t=>io.observe(t));
 </script>
 
-<script>
-document.querySelectorAll('.day-photo img,.photo-tile img').forEach(function(img){
-  img.addEventListener('error', function(){
-    var box = img.closest('.day-photo,.photo-tile');
-    if(box) box.classList.add('photo-error');
-  });
-});
-</script>
 
 
-<div class="photo-credit">
-照片來源：Wikimedia Commons／公開授權素材及旅遊影像來源。高千穗：The Modern Polymath（CC BY-SA 4.0）；
-皿倉山：Suicasmo（CC BY-SA 4.0）。本頁為私人旅行規劃用途。
-</div>
+
+
 
 </body>
 </html>
