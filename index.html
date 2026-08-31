@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="theme-color" content="#20364a" />
-<title>2026 九州秋日旅行｜家人提案版</title>
+<title>2026 福岡秋日旅行｜家人提案版</title>
 <style>
 :root{
   --ink:#89023E;
@@ -295,12 +295,6 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 }
 .day-photo.photo-error img,.photo-tile.photo-error img{display:none}
 .day-photo.photo-error .img-fallback,.photo-tile.photo-error .img-fallback{display:flex}
-.photo-credit{
-  max-width:760px;margin:18px auto 92px;padding:0 22px;
-  font-size:9px;line-height:1.6;color:#A08E92;text-align:center
-}
-
-
 /* V5.2 polished fixes */
 .wrap{padding-bottom:150px!important}
 .budget-clean{overflow:hidden}
@@ -326,6 +320,29 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
   .budget-row b{max-width:68%;font-size:12px}
 }
 .day-photo img{filter:saturate(.82) brightness(1.03) contrast(.96)!important}
+
+
+/* V5.3 budget principle polish */
+.budget-note{
+  margin-top:14px;
+  line-height:1.7;
+}
+.budget-row b small{
+  display:inline-block;
+  margin-top:4px;
+  line-height:1.55;
+}
+@media(max-width:390px){
+  .budget-row{
+    gap:12px !important;
+  }
+  .budget-row>span{
+    flex-basis:72px !important;
+  }
+  .budget-row b{
+    max-width:72% !important;
+  }
+}
 
 </style>
 </head>
@@ -570,34 +587,57 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
 </section>
 
 <section class="section" id="budget">
-  <div class="section-title"><div><div class="eyebrow">BUDGET</div><h2>費用概念</h2></div></div>
+  <div class="section-title">
+    <div>
+      <div class="eyebrow">BUDGET</div>
+      <h2>預算原則</h2>
+    </div>
+  </div>
+
   <div class="card budget-clean">
     <div class="budget-intro">
-      <span>PRELIMINARY BUDGET</span>
-      <h3>先看花費結構，不先硬抓總額</h3>
-      <p>機票已確定；住宿、租車與部分票券尚未完成預約。等關鍵價格確認後，再更新「每人總額」與「四人總額」。</p>
+      <span>OUR BUDGET RULES</span>
+      <h3>先定旅行品質，再依實際價格精算</h3>
+      <p>這趟不先硬抓一個偏低的總額。以下是我們目前規劃時會遵守的預算原則，等住宿、租車與票券真的訂下來後，再計算每人與四人的完整費用。</p>
     </div>
+
     <div class="budget-list">
-      <div class="budget-row"><span>住宿</span><b>福岡 4 晚＋由布院溫泉旅館 1 晚<br><small>⏳ 待住宿確認</small></b></div>
-      <div class="budget-row"><span>餐食</span><b>一般餐食＋特色料理<br><small>🎯 豐儉有彈性</small></b></div>
-      <div class="budget-row"><span>交通</span><b>租車＋JR＋西鐵＋新幹線＋市區交通<br><small>⏳ 待租車與車票確認</small></b></div>
-      <div class="budget-row"><span>景點／體驗</span><b>划船、秘境鐵道、柳川遊船、皿倉山等<br><small>🎯 依實際預約更新</small></b></div>
-      <div class="budget-row"><span>另計</span><b>機票＋個人購物</b></div>
+      <div class="budget-row">
+        <span>一般住宿</span>
+        <b>希望 ≤ NT$3,000／人／晚<br><small>福岡住宿以交通方便、舒適為優先</small></b>
+      </div>
+
+      <div class="budget-row">
+        <span>由布院</span>
+        <b>約 NT$4,000–6,000／人<br><small>希望一泊二食、真溫泉、房間舒服</small></b>
+      </div>
+
+      <div class="budget-row">
+        <span>餐食</span>
+        <b>一般餐食＋幾餐特色料理<br><small>想吃的安排進去，不為壓總額犧牲體驗</small></b>
+      </div>
+
+      <div class="budget-row">
+        <span>交通</span>
+        <b>高千穗租車＋JR＋西鐵＋新幹線＋市區交通<br><small>以順路、省時間、爸媽舒服為優先</small></b>
+      </div>
+
+      <div class="budget-row">
+        <span>景點體驗</span>
+        <b>划船、秘境鐵道、柳川遊船、皿倉山等<br><small>重要體驗照原規劃保留</small></b>
+      </div>
+
+      <div class="budget-row">
+        <span>另計</span>
+        <b>機票＋個人購物</b>
+      </div>
     </div>
   </div>
-  <div class="notice">重要預約完成後，這裡會改成可核對的正式預算，不用猜。</div>
-</section>
 
-<section class="section closing-section">
-  <div class="card decision">
-    <div class="eyebrow">ONE TRIP, SIX MEMORIES</div>
-    <h2>一起去九州，慢慢玩六天。</h2>
-    <p>有福岡的美食、高千穗的峽谷、由布院的一晚溫泉、柳川的水鄉，還有皿倉山從夕陽亮到夜景。不是把九州塞滿，而是每天留下一件值得記得的事。</p>
-    <div class="question"><span>10/8</span><i>→</i><span>10/13</span></div>
-    <div class="closing-cta">一起去九州嗎？ 🍁</div>
+  <div class="notice budget-note">
+    目前只呈現「花錢原則」，不放預估總額。等關鍵預約完成後，再用實際價格做正式預算。
   </div>
 </section>
-
 </div>
 
 <nav class="bottom-nav">
