@@ -344,14 +344,26 @@ details .detail-body{padding:0 0 14px;font-size:12px;color:var(--muted)}
   }
 }
 
+
+/* Hero title: one line */
+.hero h1{
+  white-space:nowrap !important;
+  font-size:clamp(36px,10.5vw,54px) !important;
+  letter-spacing:.01em !important;
+  line-height:1.12 !important;
+}
+@media(max-width:360px){
+  .hero h1{font-size:34px !important;}
+}
+
 </style>
 </head>
 <body>
 <div class="app">
 
 <header class="hero" id="home">
-  <div class="kicker">FUKUOKA & KYUSHU · AUTUMN 2026</div>
-  <h1>九州秋日<br>家族旅行</h1>
+  <div class="kicker">FUKUOKA · AUTUMN 2026</div>
+  <h1>福岡秋日旅行</h1>
   <div class="sub">福岡 × 高千穗 × 由布院 × 柳川 × 門司港</div>
   <div class="date-pill">🍂 2026.10.08 THU — 10.13 TUE</div>
   
