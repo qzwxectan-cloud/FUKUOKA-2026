@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>福岡秋日旅行</title>
+<meta property="og:title" content="福岡秋日旅行">
+<meta property="og:site_name" content="福岡秋日旅行">
+<meta name="apple-mobile-web-app-title" content="福岡秋日旅行">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style>
+  :root{
+    --berry:#89023E;
+    --rose:#CC7178;
+    --blush:#FFD9DA;
+    --sand:#F3E1DD;
+    --sage:#C7D9B7;
+    --sage-ink:#4B6B3B;
+    --ink:#2E2124;
+    --ink-soft:#8C7679;
+    --paper:#FFFFFF;
+    --page:#FBF6F4;
+    --line:#EEE1DC;
+    --shadow: 0 8px 22px -14px rgba(46,33,36,0.28);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:Calibri,"微軟正黑體","Microsoft JhengHei",sans-serif;
+    background:var(--page); color:var(--ink); -webkit-font-smoothing:antialiased; min-height:100vh;
+  }
+  #app{max-width:480px;margin:0 auto;min-height:100vh;position:relative;padding-bottom:76px;}
+
+  /* ===================== Hero banner ===================== */
+  .hero-banner{
+    position:relative; overflow:hidden; padding:46px 22px 26px; color:#fff;
+    background:linear-gradient(155deg,#5E1636 0%, var(--berry) 42%, #A5405F 78%, var(--rose) 100%);
+  }
+  .hero-banner::before{content:"";position:absolute; width:220px;height:220px;border-radius:50%;
+    background:radial-gradient(circle, rgba(255,217,218,0.35), transparent 70%); top:-90px; right:-60px;}
+  .hero-banner::after{content:"";position:absolute; width:180px;height:180px;border-radius:50%;
+    background:radial-gradient(circle, rgba(199,217,183,0.28), transparent 70%); bottom:-70px; left:-50px;}
+  .hero-in{position:relative; z-index:1;}
+  .hero-in .kicker{font-size:11.5px; opacity:.78; margin-bottom:8px;}
+  .hero-in h1{font-size:27px; margin:0 0 10px; font-weight:700;}
+  .hero-in .meta{font-size:12.5px; opacity:.92; line-height:1.6;}
+  .hero-in .meta span.sep{margin:0 7px; opacity:.5;}
+
+  /* ===================== Views ===================== */
+  .view{display:none; padding:0 18px 6px;}
+  .view.active{display:block;}
+
+  .section-title{margin:22px 2px 4px; display:flex; align-items:baseline; justify-content:space-between;}
+  .section-title h2{font-size:18px; margin:0; font-weight:700;}
+  .section-title span{font-size:11px; color:var(--ink-soft);}
+
+  .note-box{font-size:11.5px; color:var(--ink-soft); background:var(--sand); border-radius:12px;
+    padding:11px 13px; margin:12px 2px 6px; line-height:1.7;}
+
+  /* ===== day pill selector ===== */
+  .day-pills{display:flex; gap:9px; overflow-x:auto; padding:16px 2px 6px; -ms-overflow-style:none; scrollbar-width:none;}
+  .day-pills::-webkit-scrollbar{display:none;}
+  .day-pill{flex-shrink:0; width:56px; padding:9px 0 7px; text-align:center; border-radius:16px;
+    background:var(--paper); border:1px solid var(--line); cursor:pointer; box-shadow:var(--shadow);}
+  .day-pill .n{font-size:16px; font-weight:700; color:var(--ink);}
+  .day-pill .dd{font-size:9.5px; color:var(--ink-soft); margin-top:2px;}
+  .day-pill .dot{width:5px; height:5px; border-radius:50%; margin:5px auto 0; background:var(--rose);}
+  .day-pill.active{background:var(--berry); border-color:var(--berry);}
+  .day-pill.active .n, .day-pill.active .dd{color:#fff;}
+  .day-pill.active .dot{background:#fff;}
+
+  .day-header{margin:16px 2px 6px;}
+  .day-header .date{font-size:11.5px; color:var(--ink-soft); margin-bottom:3px;}
+  .day-header .title{font-size:17px; font-weight:700;}
+  .day-header .hl{display:flex; gap:6px; margin-top:9px; flex-wrap:wrap;}
+  .day-header .hl span{font-size:11px; background:var(--blush); color:var(--berry); border-radius:7px; padding:3px 9px; font-weight:700;}
+
+  /* ===== timeline item row ===== */
+  .item-list{margin-top:6px;}
+  .item-row{display:flex; gap:12px; padding:14px 0; border-bottom:1px solid var(--line);}
+  .item-row:last-child{border-bottom:none;}
+  .item-icon{width:34px; height:34px; border-radius:10px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-size:16px;}
+  .icon-flight{background:#E4DEEE;} .icon-transport{background:#DCE7F0;} .icon-meal{background:#FBE3C8;}
+  .icon-sight{background:var(--sage); opacity:.9;} .icon-hotel{background:var(--blush);}
+  .icon-rest{background:var(--sand);} .icon-shop{background:#F0DCE8;}
+  .item-main{flex:1; min-width:0;}
+  .item-time{font-size:11px; color:var(--ink-soft); margin-bottom:2px; font-weight:700;}
+  .item-title-row{display:flex; align-items:center; gap:6px; flex-wrap:wrap;}
+  .item-title{font-size:13.5px; font-weight:700; line-height:1.4;}
+  .item-note{font-size:11.5px; color:var(--ink-soft); margin-top:4px; line-height:1.65;}
+  .btn-row{display:flex; gap:8px; margin-top:9px; flex-wrap:wrap;}
+  .pill-btn{display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:700;
+    color:#fff; background:var(--berry); border-radius:20px; padding:6px 13px; text-decoration:none;}
+  .pill-btn::before{content:"📍"; font-size:10px;}
+
+  .tag{font-size:10px; font-weight:700; padding:2px 7px; border-radius:6px;}
+  .tag.locked{background:#E1EED7; color:var(--sage-ink);}
+  .tag.target{background:var(--blush); color:var(--berry);}
+  .tag.pending{background:#ECE0F1; color:#7C4A96;}
+  .tag.planb{background:#DDE7F1; color:#3E5F8C;}
+
+  /* ===================== Info cards (交通/住宿/行前/預算) ===================== */
+  .info-card{background:var(--paper); border-radius:16px; padding:15px 16px; margin:0 2px 12px; box-shadow:var(--shadow); border:1px solid var(--line);}
+  .info-card .ic-top{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:5px;}
+  .info-card h3{font-size:14.5px; margin:0; font-weight:700;}
+  .info-card .addr{font-size:11.5px; color:var(--ink-soft); line-height:1.65; margin:6px 0 4px; padding-left:11px; border-left:3px solid var(--sage);}
+  .info-card .meta{font-size:12px; color:var(--ink); line-height:1.7; margin-top:6px;}
+  .info-card .meta b{color:var(--berry);}
+
+  .banner-card{background:var(--berry); color:#fff; border-radius:16px; padding:16px 18px; margin:16px 2px; position:relative;}
+  .banner-card h3{margin:0 0 10px; font-size:13.5px; font-weight:700;}
+  .banner-row{display:flex; justify-content:space-between; align-items:center; padding:9px 0; border-top:1px solid rgba(255,255,255,0.22);}
+  .banner-row:first-of-type{border-top:none;}
+  .banner-row .l{font-size:12px; opacity:.92;}
+  .banner-row .r{font-size:12px; font-weight:700; background:rgba(255,255,255,0.2); padding:3px 9px; border-radius:6px;}
+
+  .checklist{list-style:none; margin:0; padding:0;}
+  .checklist li{display:flex; gap:9px; align-items:flex-start; padding:8px 0; font-size:12.5px; line-height:1.6; border-bottom:1px solid var(--line);}
+  .checklist li:last-child{border-bottom:none;}
+  .checklist .box{width:15px; height:15px; border-radius:4px; border:1.5px solid var(--rose); flex-shrink:0; margin-top:2px;}
+
+  .tip-card{background:var(--sage); border-radius:16px; padding:15px 16px; margin:16px 2px 12px;}
+  .tip-card h3{margin:0 0 8px; font-size:13px; color:var(--sage-ink); font-weight:700;}
+  .tip-card ul{margin:0; padding-left:16px; font-size:12px; line-height:1.85; color:var(--sage-ink);}
+
+  .principle-card{background:var(--paper); border-radius:14px; padding:13px 16px; margin:0 2px 10px; box-shadow:var(--shadow); border-left:4px solid var(--rose);}
+  .principle-card .k{font-size:12.5px; font-weight:700; color:var(--berry); margin-bottom:3px;}
+  .principle-card .v{font-size:12px; color:var(--ink); line-height:1.65;}
+
+  /* ===================== Bottom nav ===================== */
+  nav.tabbar{
+    position:fixed; left:0; right:0; bottom:0; max-width:480px; margin:0 auto;
+    background:var(--paper); border-top:1px solid var(--line);
+    display:flex; padding:9px 4px calc(6px + env(safe-area-inset-bottom)); z-index:50;
+  }
+  nav.tabbar button{
+    flex:1; background:none; border:none; display:flex; flex-direction:column; align-items:center; gap:3px;
+    padding:4px 2px; color:var(--ink-soft); font-family:inherit; cursor:pointer;
+  }
+  nav.tabbar button .icon{font-size:16px; line-height:1; padding:4px 10px; border-radius:10px;}
+  nav.tabbar button .lbl{font-size:10px; font-weight:700;}
+  nav.tabbar button.active{color:var(--berry);}
+  nav.tabbar button.active .icon{background:var(--blush);}
+
+  ::selection{background:var(--blush);}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <div class="hero-banner">
+    <div class="hero-in">
+      <div class="kicker">KYUSHU · FUKUOKA</div>
+      <h1>福岡秋日旅行</h1>
+      <div class="meta">2026.10.08 – 10.13<span class="sep">｜</span>6 天 5 夜<span class="sep">｜</span>4 人同行</div>
+    </div>
+  </div>
+
+  <!-- ===================== 行程 ===================== -->
+  <section class="view active" id="view-itinerary">
+    <div class="day-pills" id="day-pills"></div>
+    <div class="day-header" id="day-header"></div>
+    <div class="item-list" id="item-list"></div>
+  </section>
+
+  <!-- ===================== 交通 ===================== -->
+  <section class="view" id="view-transport">
+    <div class="section-title"><h2>交通總覽</h2><span>Transport</span></div>
+    <div class="banner-card">
+      <h3>🚨 兩個最重要的搶票時間</h3>
+      <div class="banner-row"><div class="l">由布院之森 1 號（4 人同行）</div><div class="r">9/10 09:00</div></div>
+      <div class="banner-row"><div class="l">高千穗峽划船（2 艘船）</div><div class="r">9/25 08:00</div></div>
+    </div>
+    <div id="transport-list"></div>
+    <div class="note-box">逐段「From→To／車次／票價／IC 卡是否適用」的完整執行表，將於搶票與租車確定後另外整理。</div>
+  </section>
+
+  <!-- ===================== 住宿 ===================== -->
+  <section class="view" id="view-stay">
+    <div class="section-title"><h2>住宿資訊</h2><span>Stay</span></div>
+    <div id="stay-list" style="margin-top:14px;"></div>
+  </section>
+
+  <!-- ===================== 行前 ===================== -->
+  <section class="view" id="view-prep">
+    <div class="section-title"><h2>行前準備</h2><span>Prep</span></div>
+    <div class="info-card" style="margin-top:14px;">
+      <h3>行李策略</h3>
+      <p class="meta">D1 機場→飯店寄放｜D2 不搬行李｜D3 大件跟著到由布院，抵達先處理行李｜<b>D4 由布院旅館→IL PALAZZO 行李直送，全員只背輕便小包</b>｜D5 不搬行李｜D6 退房後寄放飯店，購物完再取。</p>
+    </div>
+    <div class="info-card">
+      <h3>網路 / 換匯 / 保險</h3>
+      <p class="meta"><span class="tag pending">待確認</span>&nbsp; eSIM 或分享 WiFi 方案｜日圓換匯方式｜日本旅遊平安保險 — 三項皆列在「現在就要處理」待辦中。</p>
+    </div>
+    <div class="tip-card">
+      <h3>父母友善提醒</h3>
+      <ul>
+        <li>爸爸每 1.5～2 小時安排固定廁所節點，尤其 D2 自駕日</li>
+        <li>排隊原則：約 20 分鐘可接受，超過就換店，唐戶市場單一攤位 20 分鐘直接換</li>
+        <li>媽媽食量較小：柳川鰻魚找小份、唐戶市場採分享吃法、D3 午餐吃輕一點</li>
+        <li>Stanley 需要規律吃飯，行程刻意保留點心與彈性時間</li>
+        <li>不追求暴走踩點，體力可以隨時喊停調整</li>
+      </ul>
+    </div>
+    <div class="info-card">
+      <h3>現在就要處理</h3>
+      <ul class="checklist">
+        <li><span class="box"></span>確認 &HOTEL HAKATA 實際房價與房型</li>
+        <li><span class="box"></span>確認 IL PALAZZO 實際房價、房型、早餐</li>
+        <li><span class="box"></span>Stanley 提供由布院旅館候選</li>
+        <li><span class="box"></span>比較 D2 博多租車公司</li>
+        <li><span class="box"></span>確認日本旅遊保險</li>
+        <li><span class="box"></span>決定 eSIM／網路方案</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== 預算 ===================== -->
+  <section class="view" id="view-budget">
+    <div class="section-title"><h2>預算原則</h2><span>Budget</span></div>
+    <div class="note-box" style="margin-top:14px;">總額尚未計算，等住宿、租車、車票確定後才會精算每日與每人花費。以下是目前抓的方向。</div>
+    <div class="principle-card"><div class="k">一般住宿</div><div class="v">希望 ≤ NT$3,000／人／晚，但交通便利、舒適度比壓低價格更重要</div></div>
+    <div class="principle-card"><div class="k">由布院溫泉旅館</div><div class="v">約 NT$4,000～6,000／人，這一晚可以比一般住宿貴，優先一泊二食＋真溫泉＋舒適房型</div></div>
+    <div class="principle-card"><div class="k">餐食</div><div class="v">一般餐食＋幾餐特色料理，可以有 1～2 餐比較貴，不為壓低總額犧牲想吃的體驗</div></div>
+    <div class="principle-card"><div class="k">交通</div><div class="v">租車、JR、西鐵、新幹線、市區交通，以順路、省時間、父母舒適為優先</div></div>
+    <div class="principle-card"><div class="k">景點體驗</div><div class="v">高千穗划船、秘境鐵道、柳川遊船、皿倉山等重要體驗原則上保留</div></div>
+    <div class="principle-card"><div class="k">另計</div><div class="v">機票已訂（另計）、個人購物費用另計</div></div>
+  </section>
+
+</div>
+
+<nav class="tabbar">
+  <button class="tab-btn active" data-view="view-itinerary"><span class="icon">🗓️</span><span class="lbl">行程</span></button>
+  <button class="tab-btn" data-view="view-transport"><span class="icon">🚃</span><span class="lbl">交通</span></button>
+  <button class="tab-btn" data-view="view-stay"><span class="icon">🏨</span><span class="lbl">住宿</span></button>
+  <button class="tab-btn" data-view="view-prep"><span class="icon">🎒</span><span class="lbl">行前</span></button>
+  <button class="tab-btn" data-view="view-budget"><span class="icon">💰</span><span class="lbl">預算</span></button>
+</nav>
+
+<script>
+function mapUrl(q){ return "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q); }
+
+const STATUS = {
+  locked:{cls:'locked', label:'已確定'},
+  target:{cls:'target', label:'目標'},
+  pending:{cls:'pending', label:'待確認'},
+  planb:{cls:'planb', label:'備案'}
+};
+const TYPE_ICON = {
+  flight:{cls:'icon-flight', ic:'✈️'}, transport:{cls:'icon-transport', ic:'🚃'},
+  meal:{cls:'icon-meal', ic:'🍜'}, sight:{cls:'icon-sight', ic:'📍'},
+  hotel:{cls:'icon-hotel', ic:'🏨'}, rest:{cls:'icon-rest', ic:'☕'}, shop:{cls:'icon-shop', ic:'🛍️'}
+};
+
+const days = [
+  {num:1, date:'10/8（四）', energyLabel:'🟢', title:'福岡抵達．博多老城．情侶購物',
+    highlights:['石原牛','Full Full','水炊き鍋'],
+    items:[
+      {time:'06:50', type:'flight', title:'CI110 桃園起飛', status:'locked'},
+      {time:'09:55', type:'flight', title:'抵達福岡機場', status:'locked'},
+      {time:'11:35', type:'hotel', title:'抵達 &HOTEL HAKATA，寄放行李'},
+      {time:'12:15', type:'meal', title:'午餐．焼肉処 石原牛', status:'target', map:'焼肉処 石原牛 博多リバレイン'},
+      {time:'13:35', type:'sight', title:'川端通商店街．櫛田神社'},
+      {time:'14:40', type:'shop', title:'Full Full 買麵包', status:'locked', note:'D1 必去：買想吃的麵包＋D2 車上點心', map:'Full Full 福岡'},
+      {time:'15:00', type:'rest', title:'FUK COFFEE 稍作休息', status:'target', map:'FUK COFFEE 福岡'},
+      {time:'15:30', type:'hotel', title:'回飯店 Check-in，休息'},
+      {time:'18:00', type:'meal', title:'晚餐．博多水炊きあうん 舞鶴店', status:'target', map:'博多水炊きあうん 舞鶴店'},
+      {time:'19:45', type:'shop', title:'情侶購物時間（天神／大名）', note:'父母先回飯店休息'},
+      {time:'21:30', type:'hotel', title:'返回飯店'}
+    ]},
+  {num:2, date:'10/9（五）', energyLabel:'🔴', title:'高千穗一日自駕',
+    highlights:['高千穗划船','あまてらす鉄道'],
+    items:[
+      {time:'06:45', type:'meal', title:'飯店早餐'},
+      {time:'08:00', type:'transport', title:'博多附近取車', note:'Compact／Standard 5 人座以上，ETC＋導航＋CDW＋NOC'},
+      {time:'09:40', type:'rest', title:'高速休息站，固定廁所節點'},
+      {time:'11:00', type:'sight', title:'抵達高千穗，先買あまてらす鉄道車票', note:'個人旅客無法事先預約，現場買最近合適班次'},
+      {time:'11:20', type:'meal', title:'午餐（依列車時間彈性調整）'},
+      {time:'13:30', type:'sight', title:'高千穗峽，準備划船'},
+      {time:'14:00', type:'sight', title:'高千穗峽划船（2 艘船）', status:'target', note:'全行程最高優先預約：9/25 台灣時間 08:00 搶票'},
+      {time:'14:30', type:'sight', title:'高千穗峽散步'},
+      {time:'16:00', type:'transport', title:'硬性出發時間，開始返程', status:'locked'},
+      {time:'19:15', type:'transport', title:'返回博多，加油還車'},
+      {time:'20:00', type:'meal', title:'居酒屋晚餐', note:'爸爸可以喝啤酒'},
+      {time:'21:15', type:'rest', title:'體力允許：中洲／天神屋台', status:'planb'}
+    ]},
+  {num:3, date:'10/10（六）', energyLabel:'🟢', title:'由布院．觀光列車＋溫泉旅館',
+    highlights:['由布院之森','金鱗湖','一泊二食'],
+    items:[
+      {time:'08:25', type:'transport', title:'&HOTEL 退房，Taxi 前往博多站'},
+      {time:'09:17', type:'transport', title:'由布院之森 1 號 博多→由布院', status:'target', note:'必搶項目：9/10 台灣時間 09:00 開賣，需搶 4 席一起坐'},
+      {time:'11:31', type:'sight', title:'抵達由布院，先處理大件行李', note:'旅館接駁／寄送，不拖 28 吋行李逛街'},
+      {time:'12:00', type:'meal', title:'由布院輕午餐', note:'晚上有會席料理，中午吃輕一點'},
+      {time:'13:00', type:'shop', title:'湯之坪街道散步＋觀光購物'},
+      {time:'14:45', type:'sight', title:'金鱗湖散步'},
+      {time:'15:30', type:'hotel', title:'溫泉旅館 Check-in', status:'pending', note:'由 Stanley 挑選候選，尚未正式訂房'},
+      {time:'16:00', type:'rest', title:'泡溫泉'},
+      {time:'18:00', type:'meal', title:'一泊二食會席料理晚餐'}
+    ]},
+  {num:4, date:'10/11（日）', energyLabel:'🟠', title:'由布院→柳川→太宰府→福岡',
+    highlights:['柳川遊船','一藤牛腸鍋'],
+    items:[
+      {time:'08:15', type:'hotel', title:'旅館退房', status:'locked', note:'大件行李直送 IL PALAZZO，全員只背 Day Bag'},
+      {time:'09:08', type:'transport', title:'特急ゆふ2號 由布院→久留米'},
+      {time:'10:50', type:'transport', title:'轉乘西鐵久留米→柳川', note:'4 人考量時間，偏好直接 Taxi 銜接'},
+      {time:'11:40', type:'sight', title:'抵達柳川，搭乘遊船', note:'約 60 分鐘，不硬鎖時間，現場看狀況搭最近班次'},
+      {time:'13:20', type:'meal', title:'午餐．柳川鰻魚蒸籠飯', status:'target', note:'第一候選：若松屋，媽媽份量找小份／可分享', map:'若松屋 柳川鰻魚'},
+      {time:'15:00', type:'sight', title:'太宰府天滿宮．表參道．梅枝餅', map:'太宰府天滿宮'},
+      {time:'18:30', type:'hotel', title:'抵達 IL PALAZZO Check-in'},
+      {time:'20:00', type:'meal', title:'晚餐．牛腸鍋一藤 天神西通り店', status:'target', map:'牛腸鍋一藤 天神西通り店'}
+    ]},
+  {num:5, date:'10/12（一・體育之日）', energyLabel:'🟠', title:'唐戶市場．門司港．皿倉山',
+    highlights:['唐戶市場','皿倉山夜景'],
+    items:[
+      {time:'09:30', type:'transport', title:'新幹線 博多→小倉', note:'山陽新幹線另外購票，JR九州 Rail Pass 不涵蓋'},
+      {time:'10:25', type:'transport', title:'門司港，搭關門汽船前往唐戶', note:'航程約 5 分鐘，現場購票'},
+      {time:'10:50', type:'meal', title:'唐戶市場午餐', note:'國定假日營業，各攤位分享吃，單攤排隊 >20 分換攤', map:'唐戶市場 活きいき馬関街'},
+      {time:'12:15', type:'sight', title:'赤間神宮', map:'赤間神宮'},
+      {time:'13:45', type:'sight', title:'門司港 Retro 懷舊建築散策', map:'門司港レトロ'},
+      {time:'15:30', type:'transport', title:'硬性出發，前往皿倉山', status:'locked'},
+      {time:'17:15', type:'sight', title:'皿倉山纜車上山，夕陽＋夜景', note:'日落約 17:47（以出發前確認為準），帶薄外套', map:'皿倉山展望台'},
+      {time:'20:15', type:'rest', title:'返回福岡市區', note:'晚餐不硬排，視體力決定'}
+    ]},
+  {num:6, date:'10/13（二）', energyLabel:'🟢', title:'福岡市區．正式購物．回台灣',
+    highlights:['天神購物','麵屋兼虎'],
+    items:[
+      {time:'08:00', type:'meal', title:'早餐．炉端ノいとおかし', status:'target', note:'完全預約制 Walk-in 不可，勿遲到', map:'炉端ノいとおかし 六本松'},
+      {time:'09:10', type:'sight', title:'大濠公園散步'},
+      {time:'10:15', type:'rest', title:'&LOCALS 大濠公園 咖啡小憩', map:'&LOCALS 大濠公園'},
+      {time:'11:15', type:'shop', title:'天神購物 Block 1（全體一起）'},
+      {time:'13:00', type:'meal', title:'午餐．麵屋兼虎 天神本店', status:'target', note:'現金為主，排隊 >25 分換備案', map:'麵屋兼虎 天神本店'},
+      {time:'14:00', type:'shop', title:'天神購物 Block 2', note:'可分流，父母咖啡廳休息或先回飯店'},
+      {time:'15:45', type:'shop', title:'硬性停止購物', status:'locked'},
+      {time:'16:30', type:'transport', title:'前往福岡機場國際線', status:'locked'},
+      {time:'21:00', type:'flight', title:'CI117 福岡起飛 → 22:25 抵達桃園', status:'locked'}
+    ]}
+];
+
+const transportItems = [
+  {t:'機票', v:'CI110 / CI117', status:'locked', note:'桃園↔福岡 已確定'},
+  {t:'市區交通', v:'IC 卡（Suica／ICOCA／SUGOCA 通用）'},
+  {t:'由布院之森 指定席', v:'另外購票', status:'target', note:'4 席，9/10 09:00 搶票'},
+  {t:'D2 高千穗租車', v:'博多市區取車', status:'pending', note:'Compact／Standard 5 人座以上，ETC＋CDW＋NOC，比較中'},
+  {t:'D5 博多→小倉', v:'山陽新幹線另購票', status:'pending', note:'JR九州 Rail Pass 不涵蓋此段'},
+  {t:'柳川／太宰府／門司港', v:'JR＋西鐵分段購票', note:'現場處理'}
+];
+
+const stays = [
+  {days:'D1．D2', name:'&HOTEL HAKATA', status:'target', addr:'福岡県福岡市博多区冷泉町9-6（祇園站 2 號出口步行約 4 分鐘）', meta:'房價含早餐，可寄放行李，尚未正式訂房'},
+  {days:'D3', name:'由布院溫泉旅館', status:'pending', addr:'由 Stanley 提供候選後比較', meta:'預算約 NT$4,000～6,000／人，希望一泊二食＋真溫泉＋房間舒適，能否協助行李寄送是重要條件'},
+  {days:'D4．D5', name:'IL PALAZZO', status:'target', addr:'福岡市中央區春吉3-13-1', meta:'尚未正式訂房，早餐是否包含尚待確認'}
+];
+
+function statusTag(s){ if(!s) return ''; const m = STATUS[s]; return `<span class="tag ${m.cls}">${m.label}</span>`; }
+
+let currentDay = 1;
+
+function renderDayPills(){
+  document.getElementById('day-pills').innerHTML = days.map(d=>`
+    <div class="day-pill ${d.num===currentDay?'active':''}" data-day="${d.num}">
+      <div class="n">${d.num}</div>
+      <div class="dd">${d.date.slice(0,5)}</div>
+      <div class="dot"></div>
+    </div>`).join('');
+}
+
+function renderDay(){
+  const d = days.find(x=>x.num===currentDay);
+  document.getElementById('day-header').innerHTML = `
+    <div class="date">DAY ${d.num}　${d.date}　${d.energyLabel}</div>
+    <div class="title">${d.title}</div>
+    <div class="hl">${d.highlights.map(h=>`<span>${h}</span>`).join('')}</div>`;
+  document.getElementById('item-list').innerHTML = d.items.map(it=>{
+    const icon = TYPE_ICON[it.type] || TYPE_ICON.sight;
+    return `<div class="item-row">
+      <div class="item-icon ${icon.cls}">${icon.ic}</div>
+      <div class="item-main">
+        <div class="item-time">${it.time}</div>
+        <div class="item-title-row"><span class="item-title">${it.title}</span>${statusTag(it.status)}</div>
+        ${it.note ? `<div class="item-note">${it.note}</div>` : ''}
+        ${it.map ? `<div class="btn-row"><a class="pill-btn" href="${mapUrl(it.map)}" target="_blank" rel="noopener">導航</a></div>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderTransport(){
+  document.getElementById('transport-list').innerHTML = transportItems.map(x=>`
+    <div class="info-card">
+      <div class="ic-top"><h3>${x.t}</h3>${statusTag(x.status)}</div>
+      <div class="meta">${x.v}${x.note ? '｜' + x.note : ''}</div>
+    </div>`).join('');
+}
+
+function renderStay(){
+  document.getElementById('stay-list').innerHTML = stays.map(s=>`
+    <div class="info-card">
+      <div class="ic-top"><h3>${s.name}</h3>${statusTag(s.status)}</div>
+      <div class="meta"><b>${s.days}</b></div>
+      <div class="addr">${s.addr}</div>
+      <div class="meta">${s.meta}</div>
+      <div class="btn-row"><a class="pill-btn" href="${mapUrl(s.name + ' ' + s.addr)}" target="_blank" rel="noopener">導航</a></div>
+    </div>`).join('');
+}
+
+renderDayPills(); renderDay(); renderTransport(); renderStay();
+
+document.getElementById('day-pills').addEventListener('click', e=>{
+  const pill = e.target.closest('.day-pill');
+  if(!pill) return;
+  currentDay = Number(pill.dataset.day);
+  renderDayPills(); renderDay();
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.view).classList.add('active');
+    window.scrollTo(0,0);
+  });
+});
+</script>
+</body>
+</html>
