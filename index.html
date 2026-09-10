@@ -224,6 +224,15 @@ nav{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;backgro
 }
 </style>
 
+
+<style id="fab-click-fix">
+/* Fixed FAB must sit above the full-screen scrim (scrim z-index is 69). */
+.fab-wrap{z-index:71 !important;pointer-events:none !important}
+.fab-wrap .fab{pointer-events:auto !important}
+.fab-wrap.open{z-index:71 !important}
+.fab-wrap.open .fab-action{pointer-events:auto !important}
+</style>
+
 </head>
 <body>
 <div id="app">
@@ -579,7 +588,11 @@ document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>
 document.addEventListener('click',e=>{const castle=e.target.closest('[data-castle]');if(castle){state.castle=castle.dataset.castle;pushShared();rerenderDynamic();return}const live=e.target.closest('[data-live-done]');if(live){const id=live.dataset.liveDone;state.liveDone[id]=!state.liveDone[id];pushShared();renderNow();return}const step=e.target.closest('[data-step-done]');if(step){const id=step.dataset.stepDone;state.stepDone[id]=!state.stepDone[id];pushShared();renderDay();return}if(e.target.closest('[data-go-prep]')){document.querySelector('[data-view="view-prep"]').click();return}if(e.target.closest('[data-go-ticket]')){document.querySelector('[data-view="view-transport"]').click();setTimeout(()=>document.getElementById('ticket-wallet').scrollIntoView({behavior:'smooth',block:'start'}),80);return}if(e.target.closest('[data-jump-today]')){document.querySelector('[data-view="view-itinerary"]').click();renderPills();renderDay();document.getElementById('day-header').scrollIntoView({behavior:'smooth',block:'start'});return}});
 document.getElementById('rules').addEventListener('click',e=>{const b=e.target.closest('button[data-acc]');if(!b)return;b.parentElement.classList.toggle('open');b.lastElementChild.textContent=b.parentElement.classList.contains('open')?'−':'＋'});
 document.getElementById('todo-list').addEventListener('change',e=>{if(!e.target.matches('[data-todo]'))return;state.todos[e.target.dataset.todo]=e.target.checked;pushShared();renderTodos();renderNow()});
-document.getElementById('fab').addEventListener('click',openQuick);document.getElementById('fab-scrim').addEventListener('click',closeQuick);document.getElementById('sheet-backdrop').addEventListener('click',closeSheet);
+document.getElementById('fab').addEventListener('click',(e)=>{
+  e.preventDefault();
+  e.stopPropagation();
+  openQuick();
+});document.getElementById('fab-scrim').addEventListener('click',closeQuick);document.getElementById('sheet-backdrop').addEventListener('click',closeSheet);
 document.addEventListener('click',async e=>{if(e.target.closest('[data-identity]')){identitySheet();return}if(e.target.closest('[data-close-sheet]')){closeSheet();return}const qa=e.target.closest('[data-qa]');if(qa){closeQuick();const a=qa.dataset.qa;if(a==='expense')expenseForm();if(a==='todo')todoForm();if(a==='identity')identitySheet();if(a==='ticket'){closeSheet();document.querySelector('[data-view="view-itinerary"]').click();renderTodayWallet();document.getElementById('today-wallet').scrollIntoView({behavior:'smooth',block:'center'})}if(a==='navigate'){closeSheet();const day=tripDayFromDate(new Date())||currentDay,ls=liveState(day,new Date()),dest=ls.next?.location||ls.current?.location;if(dest)window.open(mapUrl(dest),'_blank')}if(a==='complete'){closeSheet();const day=tripDayFromDate(new Date())||currentDay,ls=liveState(day,new Date()),cur=ls.current;if(cur){state.liveDone[cur.id]=true;pushShared();renderNow();toast('已完成 · '+cur.title)}}return}const who=e.target.closest('[data-set-identity]');if(who){state.identity=who.dataset.setIdentity;localStorage.setItem('fukuoka_identity',state.identity);renderCloudStatus();closeSheet();toast('這支手機：'+state.identity);return}if(e.target.closest('[data-save-expense]')){const amount=Number(document.getElementById('exp-amount').value),note=document.getElementById('exp-note').value.trim();if(!amount)return toast('請輸入金額');try{await addDoc(collection(db,'trips',TRIP_ID,'expenses'),{amount,note,payer:document.getElementById('exp-payer').value,category:document.getElementById('exp-cat').value,createdBy:state.identity,createdAt:serverTimestamp()});closeSheet();toast('支出已同步')}catch(err){toast('雲端連線失敗')}return}if(e.target.closest('[data-save-todo]')){const text=document.getElementById('todo-text').value.trim();if(!text)return toast('請輸入待辦');try{await addDoc(collection(db,'trips',TRIP_ID,'customTodos'),{text,done:false,createdBy:state.identity,createdAt:serverTimestamp()});closeSheet();toast('待辦已同步')}catch(err){toast('雲端連線失敗')}return}const del=e.target.closest('[data-delete-todo]');if(del){await deleteDoc(doc(db,'trips',TRIP_ID,'customTodos',del.dataset.deleteTodo));return}});
 document.addEventListener('change',async e=>{if(!e.target.matches('[data-cloud-todo]'))return;try{await updateDoc(doc(db,'trips',TRIP_ID,'customTodos',e.target.dataset.cloudTodo),{done:e.target.checked,updatedBy:state.identity,updatedAt:serverTimestamp()})}catch(err){toast('同步失敗')}});
 setInterval(()=>{renderNow();const td=tripDayFromDate(new Date());if(td&&td!==currentDay){currentDay=td;renderPills();renderDay()}},60000);
