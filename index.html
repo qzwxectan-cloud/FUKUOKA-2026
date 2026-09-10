@@ -27,6 +27,7 @@ button,a{font:inherit} #app{max-width:480px;margin:0 auto;min-height:100vh;backg
   border-bottom:4px solid #C1DBE8;
   overflow:visible;
 }
+.hero.quick-open{z-index:70}
 .hero-in{position:relative;z-index:3;max-width:330px;padding-right:76px}
 .kicker{font-size:10px;letter-spacing:1.7px;opacity:.78;white-space:nowrap}
 .hero h1{font-size:27px;line-height:1.12;margin:7px 0 8px;letter-spacing:.01em}
@@ -34,8 +35,8 @@ button,a{font:inherit} #app{max-width:480px;margin:0 auto;min-height:100vh;backg
 .updated{margin-top:6px;font-size:10px;opacity:.66;white-space:nowrap}
 .hero-art{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
 .hero-tile{position:absolute;display:block;border-radius:28px;border:1px solid rgba(255,255,255,.06)}
-.hero-tile-a{width:116px;height:116px;right:-27px;bottom:-43px;transform:rotate(18deg);background:rgba(193,219,232,.16)}
-.hero-tile-b{width:74px;height:74px;right:18px;bottom:12px;transform:rotate(18deg);background:rgba(193,219,232,.09)}
+.hero-tile-a{width:128px;height:128px;right:-48px;bottom:-56px;transform:rotate(18deg);background:rgba(193,219,232,.12);border:none}
+.hero-tile-b{display:none}
 .hero-stroke{position:absolute;width:78px;height:17px;border-radius:999px;right:19px;top:23px;transform:rotate(-8deg);background:rgba(225,213,197,.24)}
 .view{display:none;padding:0 18px 8px}.view.active{display:block;animation:viewIn .28s ease both}@keyframes viewIn{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:none}}.section-title{display:flex;justify-content:space-between;align-items:baseline;margin:22px 2px 12px}.section-title h2{margin:0;font-size:18px}.section-title span{font-size:10.5px;color:var(--wine);background:var(--mist);padding:5px 9px;border-radius:999px;font-weight:700}
 .day-pills{display:flex;gap:9px;overflow-x:auto;padding:16px 2px 6px;scrollbar-width:none;scroll-snap-type:x proximity}.day-pills::-webkit-scrollbar{display:none}.day-pill{flex:0 0 58px;background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:9px 0 7px;text-align:center;box-shadow:var(--shadow);cursor:pointer;scroll-snap-align:start;transition:transform .22s ease,background .22s ease,border-color .22s ease}.day-pill .n{font-weight:800}.day-pill .d{font-size:9.5px;color:var(--soft);margin-top:2px}.day-pill.active{background:var(--wine);border-color:var(--wine);color:#fff;transform:translateY(-1px)}.day-pill.active .d{color:#fff}
@@ -75,14 +76,13 @@ nav{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;backgro
 }
 .fab{
   position:absolute;inset:0;width:54px;height:54px;
-  border:1px solid rgba(255,255,255,.74);
-  border-radius:17px;background:#C1DBE8;color:#64313E;
-  box-shadow:0 14px 28px -16px rgba(24,22,23,.55),inset 0 1px 0 rgba(255,255,255,.58);
+  border:none;border-radius:17px;background:#C1DBE8;color:#64313E;
+  box-shadow:0 14px 28px -16px rgba(24,22,23,.48);
   display:grid;place-items:center;font-size:29px;line-height:1;
   cursor:pointer;pointer-events:auto;transform:rotate(9deg);
   transition:transform .30s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease;
 }
-.fab::before{content:"";position:absolute;inset:-7px;border-radius:22px;border:1px solid rgba(193,219,232,.22)}
+.fab::before{content:none}
 .fab span{display:block;transform:rotate(-9deg) translateY(-1px);transition:transform .30s cubic-bezier(.2,.8,.2,1)}
 .fab:active{transform:rotate(9deg) scale(.95)}
 .fab-wrap.open .fab{transform:rotate(0deg);box-shadow:0 15px 30px -16px rgba(24,22,23,.55),0 0 0 7px rgba(193,219,232,.11)}
@@ -106,12 +106,10 @@ nav{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;backgro
 }
 .fab-wrap.open .fab-actions{pointer-events:auto}
 .fab-wrap.open .fab-action{opacity:1;pointer-events:auto}
-.fab-wrap.open .action-expense{transform:translate(-118px,12px) scale(1);transition-delay:.02s}
-.fab-wrap.open .action-todo{transform:translate(-101px,-49px) scale(1);transition-delay:.05s}
-.fab-wrap.open .action-nav{transform:translate(-57px,-94px) scale(1);transition-delay:.08s}
-.fab-wrap.open .action-ticket{transform:translate(2px,-111px) scale(1);transition-delay:.11s}
+.fab-wrap.open .action-expense{transform:translate(-108px,5px) scale(1);transition-delay:.02s}
+.fab-wrap.open .action-todo{transform:translate(-76px,-76px) scale(1);transition-delay:.06s}
 
-.fab-scrim{position:fixed;inset:0;z-index:8;background:rgba(47,38,40,.035);opacity:0;pointer-events:none;transition:opacity .18s ease}
+.fab-scrim{position:fixed;inset:0;z-index:69;background:rgba(47,38,40,.035);opacity:0;pointer-events:none;transition:opacity .18s ease}
 .fab-scrim.open{opacity:1;pointer-events:auto}
 
 @media(max-width:380px){
@@ -120,10 +118,8 @@ nav{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;backgro
   .hero h1{font-size:25px}
   .meta{font-size:11.2px}
   .fab-wrap{right:17px}
-  .fab-wrap.open .action-expense{transform:translate(-105px,10px) scale(1)}
-  .fab-wrap.open .action-todo{transform:translate(-91px,-44px) scale(1)}
-  .fab-wrap.open .action-nav{transform:translate(-52px,-84px) scale(1)}
-  .fab-wrap.open .action-ticket{transform:translate(0,-99px) scale(1)}
+  .fab-wrap.open .action-expense{transform:translate(-108px,5px) scale(1);transition-delay:.02s}
+.fab-wrap.open .action-todo{transform:translate(-76px,-76px) scale(1);transition-delay:.06s}
 }
 .sheet-backdrop{position:fixed;inset:0;background:rgba(47,38,40,.30);z-index:80;opacity:0;pointer-events:none;transition:.2s}.sheet-backdrop.open{opacity:1;pointer-events:auto}.sheet{position:fixed;z-index:81;left:50%;bottom:0;transform:translate(-50%,105%);width:min(480px,100%);background:rgba(255,253,251,.98);border-radius:28px 28px 0 0;padding:12px 18px calc(22px + env(safe-area-inset-bottom));box-shadow:0 -24px 56px -28px rgba(47,38,40,.58);transition:.28s cubic-bezier(.2,.8,.2,1);border:1px solid rgba(255,255,255,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}.sheet.open{transform:translate(-50%,0)}.sheet-handle{width:42px;height:4px;border-radius:99px;background:#D8D0CB;margin:0 auto 14px}.sheet h3{margin:0 0 12px;font-size:17px}.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.qa{border:1px solid var(--line);background:var(--page);border-radius:16px;padding:14px 11px;text-align:left;color:var(--ink);font-weight:800;cursor:pointer}.qa span{display:block;font-size:20px;margin-bottom:5px}.form-row{margin:11px 0}.form-row label{display:block;font-size:10.5px;font-weight:800;color:var(--soft);margin-bottom:5px}.form-row input,.form-row select{width:100%;border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 12px;font-size:14px;color:var(--ink)}.form-actions{display:flex;gap:8px;margin-top:14px}.form-actions button{flex:1;border:0;border-radius:999px;padding:11px;font-weight:850;cursor:pointer}.save-btn{background:var(--wine);color:#fff}.cancel-btn{background:var(--cream);color:var(--wine)}.expense-card .expense-row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line)}.expense-card .expense-row:first-of-type{border-top:0}.expense-main{font-size:12px}.expense-meta{font-size:10.5px;color:var(--soft);margin-top:2px}.expense-amt{text-align:right;font-weight:850;color:var(--wine)}.balance-pill{display:inline-flex;margin-top:7px;padding:6px 9px;border-radius:999px;background:var(--mist);color:var(--wine);font-size:10.5px;font-weight:850}.sync-note{font-size:10px;color:var(--soft);margin-top:7px}.custom-todo{display:flex;gap:9px;align-items:center;padding:9px 0;border-top:1px solid var(--line);font-size:12px}.custom-todo button{margin-left:auto;border:0;background:none;color:var(--soft);font-size:16px}.toast{position:fixed;z-index:100;left:50%;bottom:145px;transform:translate(-50%,10px);background:#2F2628;color:#fff;padding:9px 13px;border-radius:999px;font-size:11px;opacity:0;pointer-events:none;transition:.2s;white-space:nowrap}.toast.show{opacity:.94;transform:translate(-50%,0)}
 
@@ -153,12 +149,6 @@ nav{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;backgro
       </button>
       <button class="fab-action action-todo" data-qa="todo" aria-label="新增待辦">
         <span class="fab-action-icon">✓</span><span class="fab-action-label">待辦</span>
-      </button>
-      <button class="fab-action action-nav" data-qa="navigate" aria-label="下一站導航">
-        <span class="fab-action-icon">📍</span><span class="fab-action-label">導航</span>
-      </button>
-      <button class="fab-action action-ticket" data-qa="ticket" aria-label="今日票券">
-        <span class="fab-action-icon">🎫</span><span class="fab-action-label">票券</span>
       </button>
     </div>
     <button class="fab" id="fab" aria-label="快速功能" aria-expanded="false"><span>＋</span></button>
@@ -450,7 +440,7 @@ function renderExpenses(){const el=document.getElementById('expense-list');if(!e
 function renderCustomTodos(){let host=document.getElementById('cloud-todos');if(!host){host=document.createElement('div');host.id='cloud-todos';document.getElementById('todo-list').prepend(host)}host.innerHTML=customTodos.length?`<div class="check-group"><h3>共同新增</h3><div class="card">${customTodos.map(x=>`<div class="custom-todo"><input type="checkbox" data-cloud-todo="${x.id}" ${x.done?'checked':''}><span style="${x.done?'text-decoration:line-through;color:#9B9490':''}">${x.text}</span><button data-delete-todo="${x.id}">×</button></div>`).join('')}</div></div>`:''}
 function openSheet(html){document.getElementById('sheet-content').innerHTML=html;document.getElementById('quick-sheet').classList.add('open');document.getElementById('sheet-backdrop').classList.add('open')}
 function closeSheet(){document.getElementById('quick-sheet').classList.remove('open');document.getElementById('sheet-backdrop').classList.remove('open')}
-function setFabOpen(open){const w=document.getElementById('fab-wrap'),s=document.getElementById('fab-scrim'),b=document.getElementById('fab');w.classList.toggle('open',open);s.classList.toggle('open',open);w.querySelector('.fab-actions').setAttribute('aria-hidden',String(!open));b.setAttribute('aria-expanded',String(open))}
+function setFabOpen(open){const w=document.getElementById('fab-wrap'),s=document.getElementById('fab-scrim'),b=document.getElementById('fab'),h=document.querySelector('.hero');w.classList.toggle('open',open);s.classList.toggle('open',open);h.classList.toggle('quick-open',open);w.querySelector('.fab-actions').setAttribute('aria-hidden',String(!open));b.setAttribute('aria-expanded',String(open))}
 function openQuick(){setFabOpen(!document.getElementById('fab-wrap').classList.contains('open'))}
 function closeQuick(){setFabOpen(false)}
 function expenseForm(){openSheet(`<h3>記一筆支出</h3><div class="form-row"><label>金額 JPY</label><input id="exp-amount" inputmode="numeric" placeholder="2300"></div><div class="form-row"><label>項目</label><input id="exp-note" placeholder="晚餐"></div><div class="form-row"><label>付款人</label><select id="exp-payer"><option ${state.identity==='Katrina'?'selected':''}>Katrina</option><option ${state.identity==='Stanley'?'selected':''}>Stanley</option></select></div><div class="form-row"><label>分類</label><select id="exp-cat"><option>餐飲</option><option>交通</option><option>購物</option><option>住宿</option><option>門票</option><option>其他</option></select></div><div class="form-actions"><button class="cancel-btn" data-close-sheet>取消</button><button class="save-btn" data-save-expense>儲存</button></div>`)}
@@ -458,7 +448,7 @@ function todoForm(){openSheet(`<h3>新增共同待辦</h3><div class="form-row">
 function identitySheet(){openSheet(`<h3>這支手機是誰？</h3><div class="decision-actions"><button data-set-identity="Katrina" class="yes ${state.identity==='Katrina'?'active':''}">Katrina</button><button data-set-identity="Stanley" class="no ${state.identity==='Stanley'?'active':''}">Stanley</button></div><div class="sync-note">身分只存在這支手機，用來標記誰新增／付款。</div>`)}
 function tag(s){let normalized=s==='estimated'?'target':s==='fixed'?'confirmed':s;return `<span class="tag ${normalized}">${STATUS[normalized]||s}</span>`}
 function money(n){return '¥'+Number(n||0).toLocaleString('ja-JP')}
-function renderHeader(){document.getElementById('trip-title').textContent=tripData.title;document.getElementById('trip-meta').textContent=`${tripData.dateRange}｜${tripData.days}｜${tripData.travelers}人同行`;document.getElementById('last-updated').textContent='最後更新：'+tripData.lastUpdated+'｜V8 Cloud'}
+function renderHeader(){document.getElementById('trip-title').textContent=tripData.title;document.getElementById('trip-meta').textContent=`${tripData.dateRange}｜${tripData.days}｜${tripData.travelers}人同行`;document.getElementById('last-updated').textContent='最後更新：'+tripData.lastUpdated+'｜V8.3 Cloud'}
 
 function japanParts(now=new Date()){const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(now).reduce((a,p)=>(a[p.type]=p.value,a),{});return{year:+parts.year,month:+parts.month,day:+parts.day,hour:+parts.hour,minute:+parts.minute}}
 function tripDayFromDate(now){const j=japanParts(now);if(j.year!==2026||j.month!==10||j.day<8||j.day>13)return null;return j.day-7}
