@@ -233,6 +233,19 @@ nav{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;backgro
 .fab-wrap.open .fab-action{pointer-events:auto !important}
 </style>
 
+
+<style id="fab-root-layer-fix">
+#fab-wrap{
+  position:fixed !important;
+  z-index:100 !important;
+  pointer-events:none !important;
+}
+#fab-wrap .fab{pointer-events:auto !important}
+#fab-wrap.open .fab-action{pointer-events:auto !important}
+#fab-scrim{z-index:99 !important}
+nav{z-index:50 !important}
+</style>
+
 </head>
 <body>
 <div id="app">
@@ -249,7 +262,16 @@ nav{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;backgro
     <div class="updated" id="last-updated"></div>
   </div>
 
-  <div class="fab-wrap" id="fab-wrap">
+  </header>
+<section class="view active" id="view-itinerary"><div id="cloud-status"></div><div id="trip-now"></div><div id="today-wallet"></div><div class="day-pills" id="day-pills"></div><div class="day-header" id="day-header"></div><div class="item-list" id="item-list"></div><div id="day-inline-tools"></div></section>
+<section class="view" id="view-transport"><div class="section-title"><h2>交通</h2><span>Transport</span></div><div id="ticket-wallet"></div><div id="transport-strategy"></div><div id="transport-days"></div><div id="d4-decision"></div><div class="section-title"><h2>交通規則</h2><span>Rules</span></div><div id="rules"></div><div id="payment-card"></div></section>
+<section class="view" id="view-stay"><div class="section-title"><h2>住宿</h2><span>Stay</span></div><div id="stay-list"></div></section>
+<section class="view" id="view-prep"><div class="section-title"><h2>行前</h2><span>Checklist</span></div><div id="todo-list"></div></section>
+<section class="view" id="view-budget"><div class="section-title"><h2>預算</h2><span>Budget</span></div><div id="budget-summary"></div><div id="expense-list"></div><div id="budget-detail"></div></section>
+</div>
+
+<!-- Global floating quick action -->
+<div class="fab-wrap" id="fab-wrap">
     <div class="fab-actions" aria-hidden="true">
       <button class="fab-action action-expense" data-qa="expense" aria-label="記一筆支出">
         <span class="fab-action-icon">💴</span><span class="fab-action-label">記支出</span>
@@ -260,13 +282,7 @@ nav{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;backgro
     </div>
     <button class="fab" id="fab" aria-label="快速功能" aria-expanded="false"><span>＋</span></button>
   </div>
-</header>
-<section class="view active" id="view-itinerary"><div id="cloud-status"></div><div id="trip-now"></div><div id="today-wallet"></div><div class="day-pills" id="day-pills"></div><div class="day-header" id="day-header"></div><div class="item-list" id="item-list"></div><div id="day-inline-tools"></div></section>
-<section class="view" id="view-transport"><div class="section-title"><h2>交通</h2><span>Transport</span></div><div id="ticket-wallet"></div><div id="transport-strategy"></div><div id="transport-days"></div><div id="d4-decision"></div><div class="section-title"><h2>交通規則</h2><span>Rules</span></div><div id="rules"></div><div id="payment-card"></div></section>
-<section class="view" id="view-stay"><div class="section-title"><h2>住宿</h2><span>Stay</span></div><div id="stay-list"></div></section>
-<section class="view" id="view-prep"><div class="section-title"><h2>行前</h2><span>Checklist</span></div><div id="todo-list"></div></section>
-<section class="view" id="view-budget"><div class="section-title"><h2>預算</h2><span>Budget</span></div><div id="budget-summary"></div><div id="expense-list"></div><div id="budget-detail"></div></section>
-</div>
+
 <nav>
 <button class="tab active" data-view="view-itinerary"><span class="ic">📅</span><span class="lbl">行程</span></button>
 <button class="tab" data-view="view-transport"><span class="ic">🚃</span><span class="lbl">交通</span></button>
