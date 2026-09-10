@@ -17,9 +17,26 @@
 }
 *{box-sizing:border-box} html,body{margin:0;padding:0} body{font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;background:var(--page);color:var(--ink);-webkit-font-smoothing:antialiased}
 button,a{font:inherit} #app{max-width:480px;margin:0 auto;min-height:100vh;background:var(--page);padding-bottom:84px}
-.hero{position:relative;overflow:hidden;padding:44px 22px 24px;color:#fff;background:linear-gradient(145deg,#552733 0%,var(--wine) 62%,#754651 100%);border-bottom:5px solid var(--mist)}
-.hero:before{content:"";position:absolute;width:118px;height:118px;border-radius:34px;background:rgba(193,219,232,.18);right:-34px;bottom:-42px;transform:rotate(18deg)}.hero:after{content:"";position:absolute;width:86px;height:18px;border-radius:999px;background:rgba(225,213,197,.24);right:22px;top:26px;transform:rotate(-8deg)}
-.hero-in{position:relative;z-index:1}.kicker{font-size:11px;letter-spacing:1.4px;opacity:.8}.hero h1{font-size:28px;margin:7px 0 9px}.meta{font-size:12.5px;line-height:1.65;opacity:.94}.updated{margin-top:7px;font-size:10.5px;opacity:.68}
+.hero{
+  position:relative;
+  isolation:isolate;
+  min-height:154px;
+  padding:28px 22px 18px;
+  color:#fff;
+  background:#64313E;
+  border-bottom:4px solid #C1DBE8;
+  overflow:visible;
+}
+.hero-in{position:relative;z-index:3;max-width:330px;padding-right:76px}
+.kicker{font-size:10px;letter-spacing:1.7px;opacity:.78;white-space:nowrap}
+.hero h1{font-size:27px;line-height:1.12;margin:7px 0 8px;letter-spacing:.01em}
+.meta{font-size:12px;line-height:1.45;opacity:.94;white-space:nowrap}
+.updated{margin-top:6px;font-size:10px;opacity:.66;white-space:nowrap}
+.hero-art{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.hero-tile{position:absolute;display:block;border-radius:28px;border:1px solid rgba(255,255,255,.06)}
+.hero-tile-a{width:116px;height:116px;right:-27px;bottom:-43px;transform:rotate(18deg);background:rgba(193,219,232,.16)}
+.hero-tile-b{width:74px;height:74px;right:18px;bottom:12px;transform:rotate(18deg);background:rgba(193,219,232,.09)}
+.hero-stroke{position:absolute;width:78px;height:17px;border-radius:999px;right:19px;top:23px;transform:rotate(-8deg);background:rgba(225,213,197,.24)}
 .view{display:none;padding:0 18px 8px}.view.active{display:block;animation:viewIn .28s ease both}@keyframes viewIn{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:none}}.section-title{display:flex;justify-content:space-between;align-items:baseline;margin:22px 2px 12px}.section-title h2{margin:0;font-size:18px}.section-title span{font-size:10.5px;color:var(--wine);background:var(--mist);padding:5px 9px;border-radius:999px;font-weight:700}
 .day-pills{display:flex;gap:9px;overflow-x:auto;padding:16px 2px 6px;scrollbar-width:none;scroll-snap-type:x proximity}.day-pills::-webkit-scrollbar{display:none}.day-pill{flex:0 0 58px;background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:9px 0 7px;text-align:center;box-shadow:var(--shadow);cursor:pointer;scroll-snap-align:start;transition:transform .22s ease,background .22s ease,border-color .22s ease}.day-pill .n{font-weight:800}.day-pill .d{font-size:9.5px;color:var(--soft);margin-top:2px}.day-pill.active{background:var(--wine);border-color:var(--wine);color:#fff;transform:translateY(-1px)}.day-pill.active .d{color:#fff}
 .day-header{margin:17px 2px 8px}.day-header .date{font-size:11px;color:var(--soft)}.day-header .title{font-size:18px;font-weight:800;margin-top:3px}.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}.chip{font-size:10.5px;padding:5px 9px;border-radius:999px;background:var(--cream);color:var(--wine);font-weight:700}.chip:nth-child(even){background:var(--mist)}
@@ -47,40 +64,106 @@ nav{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;backgro
 @media(min-width:700px){body{padding:24px 0}#app{border-radius:24px;overflow:hidden;box-shadow:0 20px 70px rgba(100,49,62,.12)}}
 
 /* ===== V7 CLOUD ===== */
-#app{padding-bottom:104px}.cloud-strip{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 2px 0;padding:9px 12px;border:1px solid rgba(100,49,62,.10);border-radius:14px;background:rgba(255,253,251,.78);font-size:10.5px;color:var(--soft)}.cloud-strip b{color:var(--wine)}.cloud-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:5px;background:#C7D9B7}.cloud-dot.off{background:#D7B4B4}.identity-btn{border:0;background:var(--mist);color:var(--wine);font-weight:850;border-radius:999px;padding:6px 9px;cursor:pointer}.today-wallet{margin-top:13px}.today-wallet .wallet-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}.today-wallet .wallet-head span{font-size:9px;letter-spacing:.12em;opacity:.72}.today-wallet .ticket{padding:10px 0}.fab-wrap{position:fixed;z-index:72;right:max(22px,calc((100vw - 480px)/2 + 22px));top:calc(104px + env(safe-area-inset-top));width:56px;height:56px;pointer-events:none}
-.fab{position:absolute;right:0;top:0;width:52px;height:52px;border-radius:16px;transform:rotate(8deg);border:1px solid rgba(255,255,255,.62);background:#C1DBE8;color:#64313E;font-size:28px;line-height:1;box-shadow:0 10px 22px -13px rgba(47,38,40,.34),inset 0 1px 0 rgba(255,255,255,.48);cursor:pointer;pointer-events:auto;display:grid;place-items:center;transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease}
-.fab::before{content:"";position:absolute;inset:-5px;border-radius:20px;border:1px solid rgba(193,219,232,.28);opacity:.5;z-index:-1}
-.fab span{display:block;transform:translateY(-1px) rotate(-8deg);transition:transform .28s cubic-bezier(.2,.8,.2,1)}
-.fab:active{transform:rotate(8deg) scale(.94)}
-.fab-wrap.open .fab{transform:rotate(0deg);box-shadow:0 12px 26px -13px rgba(47,38,40,.34)}
+#app{padding-bottom:104px}.cloud-strip{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:12px 2px 0;padding:9px 12px;border:1px solid rgba(100,49,62,.10);border-radius:14px;background:rgba(255,253,251,.78);font-size:10.5px;color:var(--soft)}.cloud-strip b{color:var(--wine)}.cloud-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:5px;background:#C7D9B7}.cloud-dot.off{background:#D7B4B4}.cloud-dot.wait{background:#E1D5C5}.identity-btn{border:0;background:var(--mist);color:var(--wine);font-weight:850;border-radius:999px;padding:6px 9px;cursor:pointer}.today-wallet{margin-top:13px}.today-wallet .wallet-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}.today-wallet .wallet-head span{font-size:9px;letter-spacing:.12em;opacity:.72}.today-wallet .ticket{padding:10px 0}.fab-wrap{
+  position:absolute;
+  z-index:10;
+  right:20px;
+  bottom:17px;
+  width:54px;
+  height:54px;
+  pointer-events:none;
+}
+.fab{
+  position:absolute;inset:0;width:54px;height:54px;
+  border:1px solid rgba(255,255,255,.74);
+  border-radius:17px;background:#C1DBE8;color:#64313E;
+  box-shadow:0 14px 28px -16px rgba(24,22,23,.55),inset 0 1px 0 rgba(255,255,255,.58);
+  display:grid;place-items:center;font-size:29px;line-height:1;
+  cursor:pointer;pointer-events:auto;transform:rotate(9deg);
+  transition:transform .30s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease;
+}
+.fab::before{content:"";position:absolute;inset:-7px;border-radius:22px;border:1px solid rgba(193,219,232,.22)}
+.fab span{display:block;transform:rotate(-9deg) translateY(-1px);transition:transform .30s cubic-bezier(.2,.8,.2,1)}
+.fab:active{transform:rotate(9deg) scale(.95)}
+.fab-wrap.open .fab{transform:rotate(0deg);box-shadow:0 15px 30px -16px rgba(24,22,23,.55),0 0 0 7px rgba(193,219,232,.11)}
 .fab-wrap.open .fab span{transform:rotate(45deg)}
+
 .fab-actions{position:absolute;inset:0;pointer-events:none}
-.fab-action{position:absolute;right:4px;top:4px;width:48px;height:48px;border:0;background:none;padding:0;display:grid;place-items:center;opacity:0;transform:translate(0,0) scale(.55);pointer-events:none;transition:opacity .18s ease,transform .30s cubic-bezier(.2,.8,.2,1);cursor:pointer}
-.fab-action-icon{width:44px;height:44px;border-radius:15px;background:#C1DBE8;border:1px solid rgba(255,255,255,.72);box-shadow:0 9px 22px -13px rgba(47,38,40,.36);display:grid;place-items:center;font-size:17px;color:#64313E}
-.fab-action-label{position:absolute;top:47px;left:50%;transform:translateX(-50%);background:rgba(100,49,62,.92);color:#fff;padding:4px 7px;border-radius:8px;font-size:8.5px;font-weight:800;white-space:nowrap;box-shadow:0 7px 16px -12px rgba(47,38,40,.5)}
+.fab-action{
+  position:absolute;right:2px;bottom:2px;width:50px;height:50px;padding:0;border:0;background:none;
+  opacity:0;pointer-events:none;transform:translate(0,0) scale(.45);
+  transition:opacity .16s ease,transform .34s cubic-bezier(.18,.86,.24,1);cursor:pointer;
+}
+.fab-action-icon{
+  position:absolute;inset:0;display:grid;place-items:center;width:50px;height:50px;border-radius:50%;
+  background:rgba(255,253,251,.97);border:1px solid rgba(193,219,232,.78);color:#64313E;
+  box-shadow:0 12px 25px -16px rgba(47,38,40,.52);font-size:17px;
+}
+.fab-action-label{
+  position:absolute;left:50%;top:54px;transform:translateX(-50%);min-width:42px;padding:3px 6px;
+  border-radius:999px;background:#64313E;color:#fff;font-size:8px;font-weight:800;line-height:1.15;
+  white-space:nowrap;box-shadow:0 7px 15px -12px rgba(47,38,40,.55);
+}
 .fab-wrap.open .fab-actions{pointer-events:auto}
 .fab-wrap.open .fab-action{opacity:1;pointer-events:auto}
-.fab-wrap.open .fab-action:nth-child(1){transform:translate(-118px,-4px) scale(1);transition-delay:.02s}
-.fab-wrap.open .fab-action:nth-child(2){transform:translate(-104px,54px) scale(1);transition-delay:.05s}
-.fab-wrap.open .fab-action:nth-child(3){transform:translate(-58px,98px) scale(1);transition-delay:.08s}
-.fab-wrap.open .fab-action:nth-child(4){transform:translate(0,112px) scale(1);transition-delay:.11s}
-.fab-scrim{position:fixed;inset:0;z-index:69;background:rgba(47,38,40,.045);opacity:0;pointer-events:none;transition:opacity .2s}
+.fab-wrap.open .action-expense{transform:translate(-118px,12px) scale(1);transition-delay:.02s}
+.fab-wrap.open .action-todo{transform:translate(-101px,-49px) scale(1);transition-delay:.05s}
+.fab-wrap.open .action-nav{transform:translate(-57px,-94px) scale(1);transition-delay:.08s}
+.fab-wrap.open .action-ticket{transform:translate(2px,-111px) scale(1);transition-delay:.11s}
+
+.fab-scrim{position:fixed;inset:0;z-index:8;background:rgba(47,38,40,.035);opacity:0;pointer-events:none;transition:opacity .18s ease}
 .fab-scrim.open{opacity:1;pointer-events:auto}
+
+@media(max-width:380px){
+  .hero{padding-left:18px;padding-right:18px}
+  .hero-in{padding-right:68px}
+  .hero h1{font-size:25px}
+  .meta{font-size:11.2px}
+  .fab-wrap{right:17px}
+  .fab-wrap.open .action-expense{transform:translate(-105px,10px) scale(1)}
+  .fab-wrap.open .action-todo{transform:translate(-91px,-44px) scale(1)}
+  .fab-wrap.open .action-nav{transform:translate(-52px,-84px) scale(1)}
+  .fab-wrap.open .action-ticket{transform:translate(0,-99px) scale(1)}
+}
 .sheet-backdrop{position:fixed;inset:0;background:rgba(47,38,40,.30);z-index:80;opacity:0;pointer-events:none;transition:.2s}.sheet-backdrop.open{opacity:1;pointer-events:auto}.sheet{position:fixed;z-index:81;left:50%;bottom:0;transform:translate(-50%,105%);width:min(480px,100%);background:rgba(255,253,251,.98);border-radius:28px 28px 0 0;padding:12px 18px calc(22px + env(safe-area-inset-bottom));box-shadow:0 -24px 56px -28px rgba(47,38,40,.58);transition:.28s cubic-bezier(.2,.8,.2,1);border:1px solid rgba(255,255,255,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}.sheet.open{transform:translate(-50%,0)}.sheet-handle{width:42px;height:4px;border-radius:99px;background:#D8D0CB;margin:0 auto 14px}.sheet h3{margin:0 0 12px;font-size:17px}.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.qa{border:1px solid var(--line);background:var(--page);border-radius:16px;padding:14px 11px;text-align:left;color:var(--ink);font-weight:800;cursor:pointer}.qa span{display:block;font-size:20px;margin-bottom:5px}.form-row{margin:11px 0}.form-row label{display:block;font-size:10.5px;font-weight:800;color:var(--soft);margin-bottom:5px}.form-row input,.form-row select{width:100%;border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 12px;font-size:14px;color:var(--ink)}.form-actions{display:flex;gap:8px;margin-top:14px}.form-actions button{flex:1;border:0;border-radius:999px;padding:11px;font-weight:850;cursor:pointer}.save-btn{background:var(--wine);color:#fff}.cancel-btn{background:var(--cream);color:var(--wine)}.expense-card .expense-row{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line)}.expense-card .expense-row:first-of-type{border-top:0}.expense-main{font-size:12px}.expense-meta{font-size:10.5px;color:var(--soft);margin-top:2px}.expense-amt{text-align:right;font-weight:850;color:var(--wine)}.balance-pill{display:inline-flex;margin-top:7px;padding:6px 9px;border-radius:999px;background:var(--mist);color:var(--wine);font-size:10.5px;font-weight:850}.sync-note{font-size:10px;color:var(--soft);margin-top:7px}.custom-todo{display:flex;gap:9px;align-items:center;padding:9px 0;border-top:1px solid var(--line);font-size:12px}.custom-todo button{margin-left:auto;border:0;background:none;color:var(--soft);font-size:16px}.toast{position:fixed;z-index:100;left:50%;bottom:145px;transform:translate(-50%,10px);background:#2F2628;color:#fff;padding:9px 13px;border-radius:999px;font-size:11px;opacity:0;pointer-events:none;transition:.2s;white-space:nowrap}.toast.show{opacity:.94;transform:translate(-50%,0)}
 
 
-/* V7.6 compact hero: preserve original composition, reclaim first-screen space */
-.hero{min-height:168px!important;padding-top:24px!important;padding-bottom:18px!important}
-.hero h1{margin-top:7px!important;margin-bottom:7px!important}
-.hero .subtitle,.hero .meta{margin-top:5px!important}
-@media(max-width:480px){
-  .hero{min-height:158px!important}
 }
 </style>
 </head>
 <body>
 <div id="app">
-<header class="hero"><div class="hero-in"><div class="kicker">FUKUOKA AUTUMN TRIP</div><h1 id="trip-title"></h1><div class="meta" id="trip-meta"></div><div class="updated" id="last-updated"></div></div></header>
+<header class="hero">
+  <div class="hero-art" aria-hidden="true">
+    <span class="hero-tile hero-tile-a"></span>
+    <span class="hero-tile hero-tile-b"></span>
+    <span class="hero-stroke"></span>
+  </div>
+  <div class="hero-in">
+    <div class="kicker">FUKUOKA AUTUMN TRIP</div>
+    <h1 id="trip-title"></h1>
+    <div class="meta" id="trip-meta"></div>
+    <div class="updated" id="last-updated"></div>
+  </div>
+
+  <div class="fab-wrap" id="fab-wrap">
+    <div class="fab-actions" aria-hidden="true">
+      <button class="fab-action action-expense" data-qa="expense" aria-label="記一筆支出">
+        <span class="fab-action-icon">💴</span><span class="fab-action-label">記支出</span>
+      </button>
+      <button class="fab-action action-todo" data-qa="todo" aria-label="新增待辦">
+        <span class="fab-action-icon">✓</span><span class="fab-action-label">待辦</span>
+      </button>
+      <button class="fab-action action-nav" data-qa="navigate" aria-label="下一站導航">
+        <span class="fab-action-icon">📍</span><span class="fab-action-label">導航</span>
+      </button>
+      <button class="fab-action action-ticket" data-qa="ticket" aria-label="今日票券">
+        <span class="fab-action-icon">🎫</span><span class="fab-action-label">票券</span>
+      </button>
+    </div>
+    <button class="fab" id="fab" aria-label="快速功能" aria-expanded="false"><span>＋</span></button>
+  </div>
+</header>
 <section class="view active" id="view-itinerary"><div id="cloud-status"></div><div id="trip-now"></div><div id="today-wallet"></div><div class="day-pills" id="day-pills"></div><div class="day-header" id="day-header"></div><div class="item-list" id="item-list"></div><div id="day-inline-tools"></div></section>
 <section class="view" id="view-transport"><div class="section-title"><h2>交通</h2><span>Transport</span></div><div id="ticket-wallet"></div><div id="transport-strategy"></div><div id="transport-days"></div><div id="d4-decision"></div><div class="section-title"><h2>交通規則</h2><span>Rules</span></div><div id="rules"></div><div id="payment-card"></div></section>
 <section class="view" id="view-stay"><div class="section-title"><h2>住宿</h2><span>Stay</span></div><div id="stay-list"></div></section>
@@ -95,15 +178,6 @@ nav{position:fixed;left:0;right:0;bottom:0;max-width:480px;margin:0 auto;backgro
 <button class="tab" data-view="view-budget"><span class="ic">💰</span><span class="lbl">預算</span></button>
 </nav>
 
-<div class="fab-wrap" id="fab-wrap">
-  <div class="fab-actions" aria-hidden="true">
-    <button class="fab-action" data-qa="expense"><span class="fab-action-label">記一筆支出</span><span class="fab-action-icon">💴</span></button>
-    <button class="fab-action" data-qa="todo"><span class="fab-action-label">新增待辦</span><span class="fab-action-icon">✓</span></button>
-    <button class="fab-action" data-qa="navigate"><span class="fab-action-label">下一站導航</span><span class="fab-action-icon">📍</span></button>
-    <button class="fab-action" data-qa="ticket"><span class="fab-action-label">今日票券</span><span class="fab-action-icon">🎫</span></button>
-  </div>
-  <button class="fab" id="fab" aria-label="Quick Action" aria-expanded="false"><span>＋</span></button>
-</div>
 <div class="fab-scrim" id="fab-scrim"></div>
 <div class="sheet-backdrop" id="sheet-backdrop"></div>
 <div class="sheet" id="quick-sheet"><div class="sheet-handle"></div><h3>Quick Action</h3><div id="sheet-content"></div></div>
@@ -116,7 +190,7 @@ import { getFirestore, doc, setDoc, onSnapshot, collection, addDoc, updateDoc, d
 const firebaseConfig={apiKey:"AIzaSyBVpJIVsFq9i3GjTX9PKUxIaQzFYdK2vDI",authDomain:"fukuoka-trip-2026-c196e.firebaseapp.com",projectId:"fukuoka-trip-2026-c196e",storageBucket:"fukuoka-trip-2026-c196e.firebasestorage.app",messagingSenderId:"680526428368",appId:"1:680526428368:web:497b3e756c6825806c06d5"};
 const firebaseApp=initializeApp(firebaseConfig), auth=getAuth(firebaseApp), db=getFirestore(firebaseApp);
 const TRIP_ID='FUK2026', sharedRef=doc(db,'trips',TRIP_ID,'state','shared');
-let cloudReady=false, applyingCloud=false, expenses=[], customTodos=[];
+let cloudReady=false, cloudState='connecting', applyingCloud=false, expenses=[], customTodos=[];
 try{enableIndexedDbPersistence(db).catch(()=>{})}catch(e){}
 // ===== END FIREBASE CLOUD =====
 
@@ -137,7 +211,7 @@ const itineraryData=[
 {day:5,date:'10/12（一・スポーツの日）',title:'由布院',highlights:['由布院之森','空手散步','椿'],items:[
 {time:'07:45–08:40',type:'meal',title:'早餐＋FORZA Check-out',subtitle:'博多站簡單吃或帶上列車',status:'target'},{time:'09:17',type:'transport',title:'ゆふいんの森1号 博多 → 由布院',subtitle:'11:31抵達｜九州ネットきっぷ ¥5,600 / 人',status:'pending'},{time:'11:31–11:50',type:'luggage',title:'ゆふいんチッキ｜行李配送至椿',subtitle:'由布院站旁 TIC 1F｜椿在可配送旅館名單｜09:00–15:00受理',status:'target',notes:'首選直接配送，不把行李寄到晚餐後再取。',location:'由布市ツーリストインフォメーションセンター'},{time:'12:00–16:45',type:'shop',title:'由布院慢慢逛',subtitle:'湯之坪 → Floral Village → OWL’S FOREST → 金鱗湖',status:'target',location:'湯の坪街道'},{time:'下午',type:'sight',title:'OWL’S FOREST',subtitle:'¥700 / 人｜手上停留／拍照 +¥300',status:'confirmed',location:'フクロウの森 由布院'},{time:'下午',type:'sight',title:'金鱗湖',status:'target',location:'金鱗湖'},{time:'17:30',type:'meal',title:'CARNE',subtitle:'時間安全第一順位｜可較早開吃',status:'target',location:'CARNE 由布院'},{time:'18:00',type:'meal',title:'NAGOMI',subtitle:'在地感第一順位｜若選此店需控制用餐時間',status:'optional',location:'NAGOMI 由布院'},{time:'Plan B',type:'meal',title:'Avatar',subtitle:'前兩間不適合／客滿時使用',status:'backup',location:'Avatar 由布院'},{time:'希望約18:45',type:'transport',title:'由布院站附近 → Yufuin Tsubaki',subtitle:'飯店 Shuttle｜已詢問，等待實際時間與集合點',status:'pending',notes:'Booking 顯示 Shuttle 服務 14:00–19:00；19:00 是服務區間上限，不是固定班次。Taxi 為 Plan B。'},{time:'晚上',type:'hotel',title:'Yufuin Tsubaki Check-in・泡湯',subtitle:'入湯稅 ¥250 / 人，退房時現金支付',status:'target',location:'Yufuin Tsubaki'}]},
 {day:6,date:'10/13（二）',title:'由布院慢晨・博多收尾・回台灣',highlights:['悠悠哉哉','12:00巴士','CI117'],items:[
-{time:'約08:00',type:'rest',title:'自然醒・最後泡湯',subtitle:'最後一天不追求早回博多',status:'target'},{time:'08:45–10:00',type:'hotel',title:'慢慢整理・Check-out',subtitle:'最晚10:00退房',status:'confirmed'},{time:'退房後',type:'transport',title:'椿 → 由布院站／Bus Center',subtitle:'早上 Shuttle 已詢問飯店，等待回覆｜Taxi Plan B',status:'pending'},{time:'到站後',type:'rest',title:'由布院站周邊 Coffee / Brunch',subtitle:'留白時間，不塞景點',status:'target'},{time:'11:40左右',type:'transport',title:'回到由布院駅前 Bus Center',status:'target',location:'由布院駅前バスセンター'},{time:'12:00–14:07',type:'transport',title:'ゆふいん号 由布院 → 博多',subtitle:'全車指定席｜一般 ¥3,250 / 人',status:'pending'},{time:'14:15–17:00',type:'shop',title:'博多站最後購物',subtitle:'AMU PLAZA／博多阪急／KITTE／伴手禮',status:'target',location:'JR博多シティ'},{time:'17:00–17:40',type:'meal',title:'最後晚餐',subtitle:'博多站附近，不排長隊店',status:'target'},{time:'18:00–18:30',type:'transport',title:'前往福岡機場',subtitle:'目標19:00左右抵達',status:'target'},{time:'21:00',type:'flight',title:'CI117 福岡起飛',status:'confirmed'},{time:'22:25',type:'flight',title:'抵達桃園',status:'confirmed'}]}
+{time:'約08:00',type:'rest',title:'自然醒・最後泡湯',subtitle:'最後一天不追求早回博多',status:'target'},{time:'08:45–10:00',type:'hotel',title:'慢慢整理・Check-out',subtitle:'最晚10:00退房',status:'confirmed'},{time:'希望10:15',type:'transport',title:'椿 → 由布院站／Bus Center',subtitle:'飯店已確認可安排送站｜待回覆預約10:15｜Taxi Plan B',status:'target'},{time:'到站後',type:'rest',title:'由布院站周邊 Coffee / Brunch',subtitle:'留白時間，不塞景點',status:'target'},{time:'11:40左右',type:'transport',title:'回到由布院駅前 Bus Center',status:'target',location:'由布院駅前バスセンター'},{time:'12:00–14:07',type:'transport',title:'ゆふいん号 由布院 → 博多',subtitle:'全車指定席｜一般 ¥3,250 / 人',status:'pending'},{time:'14:15–17:00',type:'shop',title:'博多站最後購物',subtitle:'AMU PLAZA／博多阪急／KITTE／伴手禮',status:'target',location:'JR博多シティ'},{time:'17:00–17:40',type:'meal',title:'最後晚餐',subtitle:'博多站附近，不排長隊店',status:'target'},{time:'18:00–18:30',type:'transport',title:'前往福岡機場',subtitle:'目標19:00左右抵達',status:'target'},{time:'21:00',type:'flight',title:'CI117 福岡起飛',status:'confirmed'},{time:'22:25',type:'flight',title:'抵達桃園',status:'confirmed'}]}
 ];
 
 const d1Groups=[
@@ -275,7 +349,7 @@ const liveSchedule={
 {id:'l5-5',start:'19:00',end:'23:59',title:'Yufuin Tsubaki',time:'晚上',location:'Yufuin Tsubaki'}],
 6:[
 {id:'l6-1',start:'08:00',end:'10:00',title:'慢晨・泡湯・Check-out',time:'08:00–10:00',location:'Yufuin Tsubaki'},
-{id:'l6-2',start:'10:00',end:'10:35',title:'椿 Shuttle → 由布院站',time:'希望10:15 出發',location:'由布院駅'},{id:'l6-2b',start:'10:35',end:'12:00',title:'Coffee / Brunch',time:'～11:40',location:'由布院駅'},
+{id:'l6-2',start:'10:00',end:'10:35',title:'椿 Shuttle → 由布院站',time:'已確認可安排｜希望10:15 出發',location:'由布院駅'},{id:'l6-2b',start:'10:35',end:'12:00',title:'Coffee / Brunch',time:'～11:40',location:'由布院駅'},
 {id:'l6-3',start:'12:00',end:'14:07',title:'ゆふいん号 → 博多',time:'12:00→14:07',location:'由布院駅前バスセンター'},
 {id:'l6-4',start:'14:07',end:'17:50',title:'博多最後採買・晚餐',time:'14:15–17:40',location:'JR博多シティ'},
 {id:'l6-5',start:'17:50',end:'21:00',title:'前往機場・CI117',time:'21:00 起飛',location:'福岡空港 国際線ターミナル'}]
@@ -284,7 +358,7 @@ const liveSchedule={
 const hotelData=[
 {name:'&HOTEL HAKATA',dates:'10/08–10/10｜2晚',breakfast:'有',dinner:'-',shuttle:'-',address:'福岡県福岡市博多区冷泉町9-6',status:'confirmed'},
 {name:'FORZA Hakata Chikushi Exit II',dates:'10/10–10/12｜2晚',breakfast:'無',dinner:'-',shuttle:'-',address:'博多站筑紫口周邊',status:'confirmed'},
-{name:'湯布院 椿｜Yufuin Tsubaki',dates:'10/12–10/13｜1晚',breakfast:'無',dinner:'無',shuttle:'入住日 14:00–19:00 待確認｜退房日可預約送站',address:'1371-2 Yufuincho Kawakita',status:'confirmed'}
+{name:'湯布院 椿｜Yufuin Tsubaki',dates:'10/12–10/13｜1晚',breakfast:'無',dinner:'無',shuttle:'D5 入住日 14:00–19:00，18:45待確認｜D6 已確認可送站，待回覆10:15',address:'1371-2 Yufuincho Kawakita',status:'confirmed'}
 ];
 const ticketData=[
 {id:'d2',day:2,name:'太宰府・柳川観光きっぷ',pricePerPerson:3620,quantity:2,status:'pending',priority:'中',purchaseUrl:'https://www.nishitetsu.jp/train/qrkippu/',notes:'包含西鐵指定交通＋柳川川下り；Mahoroba Bus 不含'},
@@ -296,7 +370,7 @@ const transportationData=[
 {day:2,mode:'西鐵＋遊船＋Mahoroba',origin:'福岡',destination:'柳川・太宰府・福岡',farePerPerson:3820,status:'target',paymentMethod:'數位套票＋Mahoroba ¥100/次'},
 {day:3,mode:'步行＋少量地下鐵',origin:'博多／天神',destination:'購物區',farePerPerson:750,status:'target'},
 {day:4,mode:'ふくふく号＋船＋JR＋皿倉山',origin:'博多',destination:'唐戶・門司港・八幡・博多',status:'target'},
-{day:5,mode:'JR特急＋行李配送＋Shuttle',origin:'博多',destination:'由布院・椿',farePerPerson:5600,status:'confirmed'},
+{day:5,mode:'JR特急＋行李配送＋Shuttle',origin:'博多',destination:'由布院・椿',farePerPerson:5600,status:'pending'},
 {day:6,mode:'Shuttle＋高速巴士＋地下鐵',origin:'椿／由布院',destination:'博多・福岡機場',regularPrice:3250,status:'pending'}
 ];
 const transportRules=[
@@ -306,11 +380,11 @@ const transportRules=[
 {title:'九州ネットきっぷ｜D5',body:'¥5,600 / 人｜09:17→11:31｜全車指定席。'},
 {title:'ゆふいんチッキ｜D5',body:'由布院站旁 TIC 1F｜09:00–15:00｜行李直送椿。'},
 {title:'ゆふいん号｜D6',body:'12:00→14:07｜指定席｜¥3,250 / 人｜9/13 07:00 開放。'},
-{title:'Yufuin Tsubaki Shuttle',body:'入住日 14:00–19:00｜10/12 晚上與 10/13 早上接駁皆待飯店回覆。Taxi Backup。'}
+{title:'Yufuin Tsubaki Shuttle',body:'D5 入住日 Shuttle 14:00–19:00；希望約18:45仍待確認。D6 退房後送站已確認可安排，預計回覆希望10:15。Taxi Backup。'}
 ];
 const todoData=[
 {group:'最高優先',items:[{id:'t1',text:'9/12 台灣09:00 搶 10/12 ゆふいんの森1号 09:17→11:31，九州ネットきっぷ ¥5,600 / 人',url:'https://www.jrkyushu.co.jp/railway/ticket/limit/'},{id:'t2',text:'9/13 台灣07:00 預約 D6 ゆふいん号 12:00→14:07，2人指定席',url:'https://www.nishitetsu.jp/bus/highwaybus/rosen/yufuin/'}]},
-{group:'等待回覆',items:[{id:'t3',text:'Yufuin Tsubaki：10/12 約18:45 由布院站→椿，確認實際接送時間與集合點'},{id:'t4',text:'Yufuin Tsubaki：10/13 早上椿→由布院站，確認最晚可安排時間'}]},
+{group:'等待回覆',items:[{id:'t3',text:'Yufuin Tsubaki：10/12 約18:45 由布院站→椿，確認實際接送時間與集合點'},{id:'t4',text:'Yufuin Tsubaki：已確認退房後可送站；回覆預約 10/13 希望10:15 椿→由布院站'}]},
 {group:'交通待辦',items:[{id:'t5',text:'購買 D2 太宰府・柳川観光きっぷ',url:'https://www.nishitetsu.jp/train/qrkippu/'},{id:'t6',text:'10/10 選 D4 版本；小倉城版買 Touch Kyushu ¥2,500 / 人',url:'https://kitakyushu-tourpass.com/zh-tw/'},{id:'t6b',text:'D4 前一晚：確認乘車處＋買早餐'},{id:'t7',text:'D4 Katrina 準備 ふくふく号現金 ¥1,700'},{id:'t8',text:'Stanley 確認 Suica 餘額'}]},
 {group:'由布院待辦',items:[{id:'t8b',text:'行程確定後回覆椿：10/13 希望10:15 Shuttle 送至由布院站'},{id:'t9',text:'D5 抵達後至 ゆふいんチッキ，將大行李配送至椿'},{id:'t10',text:'D5 晚餐：CARNE 時間安全優先／NAGOMI 在地感優先／Avatar Plan B'},{id:'t11',text:'準備椿入湯稅 ¥250 / 人現金'}]},
 {group:'餐廳與現場',items:[{id:'t12',text:'若松屋：出發前確認營業／候位狀況'},{id:'t13',text:'天婦羅 天安：當天 Walk-in'},{id:'t14',text:'門司港燒咖哩：現場選店，2人 Share 1份'},{id:'t15',text:'D5 三間晚餐出發前再確認 10/12 國定假日營業狀況'}]},
@@ -324,13 +398,55 @@ const budgetData=[
 let currentDay=1;
 const state={todos:JSON.parse(localStorage.getItem('fukuoka_todos')||'{}'),castle:localStorage.getItem('fukuoka_d4_castle')||'undecided',liveDone:JSON.parse(localStorage.getItem('fukuoka_live_done')||'{}'),stepDone:JSON.parse(localStorage.getItem('fukuoka_step_done')||'{}'),identity:localStorage.getItem('fukuoka_identity')||'Katrina'};
 function toast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
-function renderCloudStatus(){document.getElementById('fab-wrap')?.classList.toggle('cloud-live',cloudReady);const el=document.getElementById('cloud-status');if(!el)return;el.innerHTML=`<div class="cloud-strip"><div><span class="cloud-dot ${cloudReady?'':'off'}"></span><b>${cloudReady?'SYNCED':'LOCAL'}</b> · FUK2026</div><button class="identity-btn" data-identity>${state.identity}</button></div>`}
-async function pushShared(){localStorage.setItem('fukuoka_d4_castle',state.castle);localStorage.setItem('fukuoka_todos',JSON.stringify(state.todos));localStorage.setItem('fukuoka_live_done',JSON.stringify(state.liveDone));localStorage.setItem('fukuoka_step_done',JSON.stringify(state.stepDone));if(!cloudReady||applyingCloud)return;try{await setDoc(sharedRef,{castle:state.castle,todos:state.todos,liveDone:state.liveDone,stepDone:state.stepDone,updatedBy:state.identity,updatedAt:serverTimestamp()},{merge:true})}catch(e){toast('雲端暫時未同步')}}
+function renderCloudStatus(){
+  const el=document.getElementById('cloud-status');if(!el)return;
+  const map={
+    connecting:{label:'CONNECTING',dot:'wait'},
+    synced:{label:'SYNCED',dot:''},
+    local:{label:'LOCAL',dot:'off'},
+    denied:{label:'NO ACCESS',dot:'off'}
+  };
+  const c=map[cloudState]||map.local;
+  el.innerHTML=`<div class="cloud-strip"><div><span class="cloud-dot ${c.dot}"></span><b>${c.label}</b> · FUK2026</div><button class="identity-btn" data-identity>${state.identity}</button></div>`;
+}
+async function pushShared(){localStorage.setItem('fukuoka_d4_castle',state.castle);localStorage.setItem('fukuoka_todos',JSON.stringify(state.todos));localStorage.setItem('fukuoka_live_done',JSON.stringify(state.liveDone));localStorage.setItem('fukuoka_step_done',JSON.stringify(state.stepDone));if(!cloudReady||applyingCloud)return;try{await setDoc(sharedRef,{castle:state.castle,todos:state.todos,liveDone:state.liveDone,stepDone:state.stepDone,updatedBy:state.identity,updatedAt:serverTimestamp()},{merge:true})}catch(e){cloudReady=false;cloudState=(e&&e.code==='permission-denied')?'denied':'local';renderCloudStatus();toast('雲端暫時未同步')}}
 function applyShared(d){if(!d)return;applyingCloud=true;if(d.castle)state.castle=d.castle;if(d.todos)state.todos=d.todos;if(d.liveDone)state.liveDone=d.liveDone;if(d.stepDone)state.stepDone=d.stepDone;localStorage.setItem('fukuoka_d4_castle',state.castle);localStorage.setItem('fukuoka_todos',JSON.stringify(state.todos));localStorage.setItem('fukuoka_live_done',JSON.stringify(state.liveDone));localStorage.setItem('fukuoka_step_done',JSON.stringify(state.stepDone));applyingCloud=false;rerenderDynamic();renderTodos();renderTodayWallet()}
-async function initCloud(){renderCloudStatus();try{await signInAnonymously(auth);onAuthStateChanged(auth,u=>{if(!u)return;cloudReady=true;renderCloudStatus();onSnapshot(sharedRef,snap=>{if(snap.exists())applyShared(snap.data());else pushShared()});const eq=query(collection(db,'trips',TRIP_ID,'expenses'),orderBy('createdAt','desc'));onSnapshot(eq,snap=>{expenses=snap.docs.map(x=>({id:x.id,...x.data()}));renderExpenses();renderBudget()});const tq=query(collection(db,'trips',TRIP_ID,'customTodos'),orderBy('createdAt','desc'));onSnapshot(tq,snap=>{customTodos=snap.docs.map(x=>({id:x.id,...x.data()}));renderCustomTodos()})})}catch(e){cloudReady=false;renderCloudStatus();console.warn(e)}}
+async function initCloud(){
+  cloudState='connecting';renderCloudStatus();
+  try{
+    await signInAnonymously(auth);
+    onAuthStateChanged(auth,u=>{
+      if(!u)return;
+      onSnapshot(sharedRef,
+        snap=>{
+          cloudReady=true;cloudState='synced';renderCloudStatus();
+          if(snap.exists())applyShared(snap.data());else pushShared();
+        },
+        err=>{
+          cloudReady=false;
+          cloudState=(err&&err.code==='permission-denied')?'denied':'local';
+          renderCloudStatus();
+          console.warn('Firestore state listener:',err);
+        }
+      );
+      const eq=query(collection(db,'trips',TRIP_ID,'expenses'),orderBy('createdAt','desc'));
+      onSnapshot(eq,
+        snap=>{expenses=snap.docs.map(x=>({id:x.id,...x.data()}));renderExpenses();renderBudget()},
+        err=>console.warn('Expense listener:',err)
+      );
+      const tq=query(collection(db,'trips',TRIP_ID,'customTodos'),orderBy('createdAt','desc'));
+      onSnapshot(tq,
+        snap=>{customTodos=snap.docs.map(x=>({id:x.id,...x.data()}));renderCustomTodos()},
+        err=>console.warn('Todo listener:',err)
+      );
+    });
+  }catch(e){
+    cloudReady=false;cloudState='local';renderCloudStatus();console.warn(e);
+  }
+}
 function todayTickets(day){let tickets=[...ticketData];if(state.castle==='yes')tickets.splice(1,0,{day:4,name:'Touch Kyushu｜1日券',pricePerPerson:2500,quantity:2,purchaseUrl:'https://kitakyushu-tourpass.com/zh-tw/',notes:'小倉城版'});return tickets.filter(t=>t.day===day)}
 function renderTodayWallet(){const el=document.getElementById('today-wallet');if(!el)return;const day=tripDayFromDate(new Date())||currentDay, ts=todayTickets(day);const extras={1:[['CI110','06:50 TPE → 09:55 FUK'],['&HOTEL HAKATA','10/08–10/10'],['石原牛・とり田','12:30 / 18:15']],3:[['FORZA','10/10–10/12'],['D4 VERSION','今晚決定']],5:[['ゆふいん椿','10/12 入住'],['SHUTTLE','18:45 希望・待確認']],6:[['椿 SHUTTLE','10:15 希望・可安排'],['CI117','21:00 FUK → TPE']]}[day]||[];const rows=[...ts.map(t=>[t.name,t.notes||t.purchaseDate||'',t.purchaseUrl]),...extras.map(x=>[x[0],x[1],null])];el.innerHTML=`<div class="card wallet today-wallet"><div class="wallet-head"><h3 style="margin:0">TRIP WALLET · D${day}</h3><span>TODAY</span></div>${rows.length?rows.map(r=>`<div class="ticket"><div class="ticket-top"><div class="ticket-name">${r[0]}</div></div><div class="ticket-meta">${r[1]}</div>${r[2]?`<div class="ticket-actions"><a class="link-btn" href="${r[2]}" target="_blank" rel="noopener">開啟票券</a></div>`:''}</div>`).join(''):'<div class="ticket-meta">今天沒有需要開啟的票券。</div>'}</div>`}
-function renderExpenses(){const el=document.getElementById('expense-list');if(!el)return;const total=expenses.reduce((a,x)=>a+(+x.amount||0),0),kp=expenses.filter(x=>x.payer==='Katrina').reduce((a,x)=>a+(+x.amount||0),0),sp=expenses.filter(x=>x.payer==='Stanley').reduce((a,x)=>a+(+x.amount||0),0),balance=(kp-sp)/2;el.innerHTML=`<div class="card expense-card"><h3>TRIP EXPENSES</h3><div class="small">實際共同支出 <b>${money(total)}</b></div><div class="balance-pill">${balance>0?`Stanley → Katrina ${money(balance)}`:balance<0?`Katrina → Stanley ${money(-balance)}`:'目前已平衡'}</div>${expenses.slice(0,8).map(x=>`<div class="expense-row"><div class="expense-main"><b>${x.note||'旅行支出'}</b><div class="expense-meta">${x.payer||'共同'} 付款 · ${x.category||'其他'}${x.createdBy?' · '+x.createdBy:''}</div></div><div class="expense-amt">${money(x.amount)}</div></div>`).join('')||'<div class="sync-note">按右下 ＋ 記第一筆共同支出。</div>'}</div>`}
+function renderExpenses(){const el=document.getElementById('expense-list');if(!el)return;const total=expenses.reduce((a,x)=>a+(+x.amount||0),0),kp=expenses.filter(x=>x.payer==='Katrina').reduce((a,x)=>a+(+x.amount||0),0),sp=expenses.filter(x=>x.payer==='Stanley').reduce((a,x)=>a+(+x.amount||0),0),balance=(kp-sp)/2;el.innerHTML=`<div class="card expense-card"><h3>TRIP EXPENSES</h3><div class="small">實際共同支出 <b>${money(total)}</b></div><div class="balance-pill">${balance>0?`Stanley → Katrina ${money(balance)}`:balance<0?`Katrina → Stanley ${money(-balance)}`:'目前已平衡'}</div>${expenses.slice(0,8).map(x=>`<div class="expense-row"><div class="expense-main"><b>${x.note||'旅行支出'}</b><div class="expense-meta">${x.payer||'共同'} 付款 · ${x.category||'其他'}${x.createdBy?' · '+x.createdBy:''}</div></div><div class="expense-amt">${money(x.amount)}</div></div>`).join('')||'<div class="sync-note">按表頭右上 ＋ 記第一筆共同支出。</div>'}</div>`}
 function renderCustomTodos(){let host=document.getElementById('cloud-todos');if(!host){host=document.createElement('div');host.id='cloud-todos';document.getElementById('todo-list').prepend(host)}host.innerHTML=customTodos.length?`<div class="check-group"><h3>共同新增</h3><div class="card">${customTodos.map(x=>`<div class="custom-todo"><input type="checkbox" data-cloud-todo="${x.id}" ${x.done?'checked':''}><span style="${x.done?'text-decoration:line-through;color:#9B9490':''}">${x.text}</span><button data-delete-todo="${x.id}">×</button></div>`).join('')}</div></div>`:''}
 function openSheet(html){document.getElementById('sheet-content').innerHTML=html;document.getElementById('quick-sheet').classList.add('open');document.getElementById('sheet-backdrop').classList.add('open')}
 function closeSheet(){document.getElementById('quick-sheet').classList.remove('open');document.getElementById('sheet-backdrop').classList.remove('open')}
@@ -342,7 +458,7 @@ function todoForm(){openSheet(`<h3>新增共同待辦</h3><div class="form-row">
 function identitySheet(){openSheet(`<h3>這支手機是誰？</h3><div class="decision-actions"><button data-set-identity="Katrina" class="yes ${state.identity==='Katrina'?'active':''}">Katrina</button><button data-set-identity="Stanley" class="no ${state.identity==='Stanley'?'active':''}">Stanley</button></div><div class="sync-note">身分只存在這支手機，用來標記誰新增／付款。</div>`)}
 function tag(s){let normalized=s==='estimated'?'target':s==='fixed'?'confirmed':s;return `<span class="tag ${normalized}">${STATUS[normalized]||s}</span>`}
 function money(n){return '¥'+Number(n||0).toLocaleString('ja-JP')}
-function renderHeader(){document.getElementById('trip-title').textContent=tripData.title;document.getElementById('trip-meta').textContent=`${tripData.dateRange}｜${tripData.days}｜${tripData.travelers}人同行`;document.getElementById('last-updated').textContent='最後更新：'+tripData.lastUpdated+'｜V7.6 Cloud'}
+function renderHeader(){document.getElementById('trip-title').textContent=tripData.title;document.getElementById('trip-meta').textContent=`${tripData.dateRange}｜${tripData.days}｜${tripData.travelers}人同行`;document.getElementById('last-updated').textContent='最後更新：'+tripData.lastUpdated+'｜V8 Cloud'}
 
 function japanParts(now=new Date()){const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(now).reduce((a,p)=>(a[p.type]=p.value,a),{});return{year:+parts.year,month:+parts.month,day:+parts.day,hour:+parts.hour,minute:+parts.minute}}
 function tripDayFromDate(now){const j=japanParts(now);if(j.year!==2026||j.month!==10||j.day<8||j.day>13)return null;return j.day-7}
@@ -370,8 +486,8 @@ function budgetCalc(){let estimated=0;budgetData.forEach(b=>{if(b.name==='D4 下
 function renderBudget(){const b=budgetCalc();document.getElementById('budget-summary').innerHTML=`<div class="budget-summary"><div class="budget-box"><div class="k">目前已建預估</div><div class="v">${money(b.estimated)}</div></div><div class="budget-box"><div class="k">已付款</div><div class="v">TBD</div></div><div class="budget-box"><div class="k">Taxi / Backup</div><div class="v">TBD</div></div><div class="budget-box"><div class="k">2人旅行</div><div class="v">6D5N</div></div></div><div class="note-box">僅計已知交通、行李、OWL’S FOREST 與入湯稅；未確認折扣不計。</div>`;document.getElementById('budget-detail').innerHTML=`<div class="card"><h3>目前已建資料</h3><div class="budget-list">${budgetData.map(x=>{let v=x.name==='D4 下關・門司港・皿倉山'?(state.castle==='yes'?12800:12380):(x.estimated||x.regularPrice||0);return `<div class="budget-row"><div><b>${x.cat}</b><br><span class="muted">${x.name}</span></div><div style="text-align:right"><b>${money(v)}</b></div></div>`}).join('')}</div></div>`}
 function rerenderDynamic(){renderWallet();renderTodayWallet();renderStrategy();renderTransportDays();renderDecision();renderBudget();renderExpenses();renderNow();renderDay()}
 renderHeader();renderCloudStatus();renderNow();renderTodayWallet();renderPills();renderDay();renderWallet();renderStrategy();renderTransportDays();renderDecision();renderRules();renderStay();renderTodos();renderBudget();renderExpenses();initCloud();
-document.getElementById('day-pills').addEventListener('click',e=>{const p=e.target.closest('.day-pill');if(!p)return;currentDay=Number(p.dataset.day);renderPills();renderDay();renderTodayWallet();window.scrollTo({top:0,behavior:'smooth'})});
-document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));btn.classList.add('active');document.getElementById(btn.dataset.view).classList.add('active');window.scrollTo(0,0)}));
+document.getElementById('day-pills').addEventListener('click',e=>{const p=e.target.closest('.day-pill');if(!p)return;currentDay=Number(p.dataset.day);closeQuick();renderPills();renderDay();renderTodayWallet();window.scrollTo({top:0,behavior:'smooth'})});
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));closeQuick();btn.classList.add('active');document.getElementById(btn.dataset.view).classList.add('active');window.scrollTo(0,0)}));
 document.addEventListener('click',e=>{const castle=e.target.closest('[data-castle]');if(castle){state.castle=castle.dataset.castle;pushShared();rerenderDynamic();return}const live=e.target.closest('[data-live-done]');if(live){const id=live.dataset.liveDone;state.liveDone[id]=!state.liveDone[id];pushShared();renderNow();return}const step=e.target.closest('[data-step-done]');if(step){const id=step.dataset.stepDone;state.stepDone[id]=!state.stepDone[id];pushShared();renderDay();return}if(e.target.closest('[data-go-prep]')){document.querySelector('[data-view="view-prep"]').click();return}if(e.target.closest('[data-go-ticket]')){document.querySelector('[data-view="view-transport"]').click();setTimeout(()=>document.getElementById('ticket-wallet').scrollIntoView({behavior:'smooth',block:'start'}),80);return}if(e.target.closest('[data-jump-today]')){document.querySelector('[data-view="view-itinerary"]').click();renderPills();renderDay();document.getElementById('day-header').scrollIntoView({behavior:'smooth',block:'start'});return}});
 document.getElementById('rules').addEventListener('click',e=>{const b=e.target.closest('button[data-acc]');if(!b)return;b.parentElement.classList.toggle('open');b.lastElementChild.textContent=b.parentElement.classList.contains('open')?'−':'＋'});
 document.getElementById('todo-list').addEventListener('change',e=>{if(!e.target.matches('[data-todo]'))return;state.todos[e.target.dataset.todo]=e.target.checked;pushShared();renderTodos();renderNow()});
